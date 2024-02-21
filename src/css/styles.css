@@ -1,0 +1,173 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+:root {
+	--font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+	margin-bottom: 36px;
+}
+
+form {
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+input {
+	width: 272px;
+	height: 40px;
+	flex-shrink: 0;
+	border-radius: 4px;
+	border: 1px solid #808080;
+	color: #808080;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0.04em;
+	padding-left: 15px;
+}
+input::placeholder {
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0.04em;
+	color: #808080;
+}
+
+.form-btn {
+	padding: 8px 16px;
+	border: none;
+	border-radius: 8px;
+	background: #4e75ff;
+	color: #fff;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: 0.04em;
+}
+
+.load-more-btn {
+	padding: 8px 16px;
+	border: none;
+	border-radius: 8px;
+	background: #4e75ff;
+	color: #fff;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: 0.04em;
+	margin: 0 auto;
+}
+
+h3 {
+	font-family: var(--font-family);
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: 0.04em;
+	color: #2e2f42;
+	margin-bottom: 4px;
+}
+
+p {
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: 0.04em;
+	color: #2e2f42;
+	margin-bottom: 4px;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	margin-top: 32px;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+.gallery-item {
+	border: 1px solid #808080;
+}
+
+.gallery-image {
+	width: 360px;
+	height: 200px;
+	margin-bottom: 5px;
+}
+
+.image-description {
+	display: flex;
+	gap: 32px;
+	justify-content: center;
+}
+
+.decsription-item {
+	text-align: center;
+}
+
+.loader {
+	text-align: center;
+	font-size: 25px;
+}
+
+.loader-line {
+	width: 100vw;
+	height: 10px;
+	display: inline-block;
+	position: relative;
+	background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
+	box-sizing: border-box;
+	animation: runningstrip 500ms linear infinite;
+	text-align: center;
+	font-size: 25px;
+}
+
+@keyframes runningstrip {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+
+	0% {
+		transform: scale(0);
+	}
+}
