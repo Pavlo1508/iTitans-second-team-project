@@ -3,26 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Images Search</title>
+	<title>iTitans-second-team-project</title>
 	<link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-	<header>
-		<h1>Hello Gallery</h1>
-	</header>
+	<!-- ======= Header ======= -->
+	<load src="./partials/header.html" />
+	
+	<!-- ======= Main ======= -->
 	<main>
-		<form class="search-form">
-			<input class="form-input" type="text" name="searchInput" placeholder="Search image">
-			<button class="form-btn">Search</button>
-		</form>
-
-		<p class="loader"><span class="loader-line"></span>Loading...</p>
-		
-		<ul class="gallery"></ul>
-
-		<button class="load-more-btn" style="display:none;">Load more</button>
-
+		<!--Side Bar-->
+		<load src="./partials/side-bar.html" />
+		<!--Fonds-->
+		<load src="./partials/fonds.html" />
+		<!--Hero-->
+		<load src="./partials/hero.html" />
+		<!--Shopping List-->
+		<load src="./partials/shopping-list.html" />
+		<!--Modal-->
+		<load src="./partials/modal.html" />
 	</main>
-	<script src="./main.js" type="module"></script>
+	
+	<!-- ======= Footer ======= -->
+	<!-- <load src="./" /> -->
+
+	<script type="module" src="./js/main.js"></script>
 </body>
 </html>
