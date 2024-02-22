@@ -1,16 +1,16 @@
 /* Base */
-@import url();
+@import url(./base.css);
 /* Header */
-@import url();
+@import url(./header.css);
 /* Side Bar */
-@import url();
+@import url(./side-bar.css);
 /* Fonds */
-@import url();
+@import url(./fonds.css);
 /* Hero */
-@import url();
+@import url(./hero.css);
 /* Shopping List */
-@import url();
+@import url(./shopping-list.css);
 /* Modal */
-@import url();
+@import url(./modal.css);
 /* Footer */
 /* @import url(); */
