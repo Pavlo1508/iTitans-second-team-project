@@ -22,8 +22,8 @@
     .button {
         background-color: #4C2EE8;
         box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
-        width: 50px;
-        height: 30px;
+        width: 40px;
+        height: 24px;
         border-radius: 200px;
         cursor: pointer;
         position: relative;
@@ -34,10 +34,11 @@
         position: absolute;
         content: '';
         background-color: #fff;
-        width: 20px;
-        height: 20px;
+        width: 17px;
+        height: 17px;
         border-radius: 100px;
-        margin: 5px;
+        margin: 1px;
+        bottom: 3px;
         transition: 0.2s;
     }
     
@@ -51,3 +52,4 @@
     input {
         display: none;
     }
+    
