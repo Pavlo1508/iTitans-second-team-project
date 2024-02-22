@@ -10,26 +10,30 @@
 
 <body>
     <header class="header">
-        <a class="logo-link" href="./index.html">
-            <svg class="icon-logo">
-                <use href=“#id-booksshelf”></use>
-            </svg>
-        </a>
-        <a class="home-btn" target="_blank" href="">home</a>
-        <a class="list-btn" target="_blank" href=""> Shopping list 
-            <svg class="basket">
-                <use href=“#id”></use>
-            </svg>
-        </a>
-        <div class="container">
-            <input type="checkbox" id="chek">
-            <label for="chek" class="button"></label>
+        <div class="container header-container">
+            <a class="logo-link" href="./index.html">
+                <svg class="icon-logo" width="109" height="28">
+                    <use href=“#id-booksshelf”></use>
+                </svg>
+            </a>
+            <nav class="nav-menu">
+                <a class="nav-link" target="_blank" href="">home</a>
+                <a class="nav-shopping" target="_blank" href=""> Shopping list
+                    <svg class="shopping-icon" width="20" height="20">
+                        <use href=“#id-uilcard”></use>
+                    </svg>
+                </a>
+            </nav>
+            <div class="container">
+                <input type="checkbox" id="chek">
+                <label for="chek" class="button"></label>
+            </div>
+            <button class="btn-menu" type="button">
+                <svg class="icon-menu">
+                    <use href=“#id-aling”></use>
+                </svg>
+            </button>
         </div>
-        <button class="btn-menu" type="button">
-            <svg class="icon-menu">
-                <use href=“#id-aling”></use>
-            </svg>
-        </button>
     </header>
 </body>
 
