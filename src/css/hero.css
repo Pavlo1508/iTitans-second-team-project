@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  width: 100%;
+}
+.hero-section {
+  padding: 20px 0 80px;
+}
+.hero-container {
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.hero-list-wrapper:not(:last-child) {
+  margin-bottom: 94px;
+}
+.hero-card-image {
+  width: 335px;
+  height: 485px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+.hero-title {
+  color: #111;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+}
+.hero-accent {
+  color: #4f2ee8;
+}
+.hero-card-title {
+  color: #b4afaf;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.book-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.book-author {
+  color: #b4afaf;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+.card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  box-sizing: border-box;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 2px solid rgb(79, 46, 232);
+  border-radius: 40px;
+  background-color: transparent;
+  position: absolute;
+  right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .hero-section {
+    padding: 50px 0 100px;
+  }
+  .hero-container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+  .hero-list-wrapper:not(:last-child) {
+    margin-bottom: 106px;
+  }
+  .hero-list-card {
+    min-height: 366px;
+  }
+  .hero-title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+  .hero-card-title {
+    line-height: 24px;
+  }
+  .hero-card-image {
+    width: 218px;
+    height: 316px;
+  }
+  .hero-card-list {
+    display: flex;
+    width: 704px;
+    gap: 25px;
+  }
+  .book-author {
+    margin-bottom: 20px;
+  }
+  .card-button {
+    right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero-container {
+    min-width: 1044px;
+    padding: 0 24px;
+  }
+  .hero-list-wrapper {
+    min-width: 996px;
+  }
+  .hero-list-card {
+    min-height: 306px;
+  }
+  .hero-card-image {
+    max-width: 180px;
+    height: 256px;
+  }
+  .hero-card-list {
+    min-width: 996px;
+    gap: 24px;
+  }
+  .hero-list {
+    min-width: 996px;
+  }
+  .book-title {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .book-author {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-button {
+    right: 220px;
+  }
+}
