@@ -1,0 +1,147 @@
+body {
+  background-color: #f6f6f6;
+}
+
+.conteiner {
+  width: 375px;
+  padding: 0 20px 0 20px;
+  margin: 0 auto;
+}
+
+#categories-list {
+  display: flex;
+  width: 307px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.32px;
+}
+
+.category-item {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.category-item:hover {
+  cursor: pointer;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: center;
+  max-width: 335px;
+  max-height: 228px;
+  overflow-y: scroll;
+  margin-top: 40px;
+  border: solid 1px #000;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 12px;
+  background-color: inherit;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background-color: inherit;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  height: 114px;
+  background-color: #e0e0e0;
+}
+
+.test {
+  width: 335px;
+  height: 485px;
+  margin-top: 40px;
+  background-color: antiquewhite;
+}
+
+/* .dark-category-item {
+  color: rgb(255, 255, 255, 0.6);
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  height: 114px;
+  background: rgba(17, 17, 17, 0.6);
+} */
+
+@media screen and (min-width: 375px) {
+  .sidebar {
+    width: 335px;
+    max-height: 228px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .test {
+    width: 335px;
+    height: 485px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: antiquewhite;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .conteiner {
+    width: 768px;
+    padding: 0 32px 0 32px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+  }
+
+  .test {
+    width: 335px;
+    height: 472px;
+    margin-top: 40px;
+    background-color: antiquewhite;
+  }
+
+  #categories-list {
+    gap: 32px;
+  }
+
+  .sidebar {
+    margin-top: 40px;
+    max-width: 337px;
+    max-height: 472px;
+    border: solid 1px #000;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    min-height: 167px;
+    background-color: #e0e0e0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .conteiner {
+    width: 1440px;
+    padding: 0 24px 0 24px;
+    margin: auto;
+
+    position: relative;
+  }
+
+  .test {
+    position: absolute; /* Позиціонування .test відносно .conteiner */
+    left: 400px; /* Позиціонування .test зліва від .conteiner */
+    top: 0;
+    width: 996px;
+  }
+
+  .sidebar {
+    margin-top: 40px;
+    max-width: 328px;
+    max-height: 472px;
+    position: fixed;
+  }
+}
