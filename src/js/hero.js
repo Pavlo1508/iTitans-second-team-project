@@ -78,3 +78,5 @@ window.addEventListener('resize', () => {
   document.querySelector('.hero-list').innerHTML = '';
   renderBookCards();
 });
+// ПЕРЕНЕСТИ В MAIN.JS
+// import './hero';
