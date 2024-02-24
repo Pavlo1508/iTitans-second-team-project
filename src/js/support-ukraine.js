@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
-import 'swiper/swiper.css';
+// import 'swiper/swiper.css';
+import 'swiper/css';
 import { supporters } from './support-fonds';
 
 const swiperOptions = {
