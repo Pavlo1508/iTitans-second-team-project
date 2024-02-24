@@ -2,9 +2,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 24 40 20;
+  padding: 24px 40px 20px;
   width: 335px;
-  max-height: 352;
+  max-height: 352px;
   border-radius: 16px;
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
 }
@@ -13,7 +13,7 @@
   cursor: pointer;
   display: flex;
   gap: 12px;
-  margin-bottom: 40;
+  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -30,8 +30,8 @@
 }
 
 .supporters__icon {
-  width: 20;
-  height: 32;
+  width: 20px;
+  height: 32px;
 }
 
 .supporters__item {
@@ -61,23 +61,23 @@
 
 .supporters__btn {
   cursor: pointer;
-  margin: 0 auto;
-  padding: 0;
+  margin: 0px auto;
+  padding: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32;
-  min-height: 32;
+  width: 32px;
+  min-height: 32px;
   border: none;
-  border-radius: 50;
+  border-radius: 50px;
   background-color: #ffffff;
   transform: rotateX(0);
   transition: transform 0.5s ease-in-out;
 
   & span {
     visibility: hidden;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
   }
 }
 
@@ -90,12 +90,12 @@
 }
 
 .supporters__btn-icon {
-  width: 22;
-  height: 22;
+  width: 22px;
+  height: 22px;
 }
 
 .swiper {
-  margin-bottom: 16;
+  margin-bottom: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -105,12 +105,12 @@
   }
 
   .swiper {
-    margin-bottom: 32;
+    margin-bottom: 32px;
   }
 
   .supporters__btn {
-    width: 38;
-    min-height: 38;
+    width: 38px;
+    min-height: 38px;
   }
 }
 
@@ -122,11 +122,11 @@
   }
 
   .swiper {
-    margin-bottom: 40;
+    margin-bottom: 40px;
   }
 
   .supporters__btn {
-    width: 38;
-    min-height: 38;
+    width: 38px;
+    min-height: 38px;
   }
 }
