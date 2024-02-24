@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+  color: #27253d;
+  background: white;
+}
+
+main {
+  position: relative;
+  padding: 1rem 1rem 3rem;
+  min-height: calc(100vh - 4rem);
+}
+
+
+.hidden {
+  display: none;
+}
+
+.pagination-container {
+  width: calc(100% - 2rem);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.pagination-number,
+.pagination-button{
+    font-size: 1.1rem;
+  background-color: transparent;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius:50%;
+}
+
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+  background: #fff;
+}
+
+.pagination-number.active {
+  color: #fff;
+  background: black;
+}
+
+#prev-button{
+    color:white;
+    background: rgba(17, 17, 17, 1);
+}
+#next-button{
+color:black;
+background: rgba(234, 198, 69, 1);
+
+}
+
+
+#paginated-list{
+    display: none;
+}
+/* For phones */
+@media only screen and (max-width: 600px) {
+    /* Add your styles for phones here */
+  }
+  
+  /* For tablets */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Add your styles for tablets here */
+  }
+  
+  /* For computers */
+  @media only screen and (min-width: 1025px) {
+    /* Add your styles for computers here */
+  }
+  
