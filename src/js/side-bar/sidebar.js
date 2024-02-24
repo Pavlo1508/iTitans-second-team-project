@@ -6,3 +6,7 @@ export async function initializeSb() {
     const categories = await getCategories();
     renderSb(categories);
 };
+
+// ПЕРЕНЕСТИ В МЕЙН
+// import { initializeSb } from './side-bar/sidebar'
+// initializeSb();
