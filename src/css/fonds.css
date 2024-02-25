@@ -104,7 +104,7 @@
   }
 
   .swiper {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 		margin-left: 0 !important;
 		margin-right: 0 !important;
   }
@@ -120,10 +120,6 @@
     width: 356px;
     max-height: 490px;
     padding-bottom: 24px;
-  }
-
-  .swiper {
-    margin-bottom: 40px;
   }
 
   .supporters__btn {
