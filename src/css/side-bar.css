@@ -21,6 +21,7 @@
 .sidebar {
   max-height: 228px;
   overflow-y: scroll;
+	margin-bottom: 40px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -53,8 +54,9 @@
   }
 
   .sidebar {
-    max-width: 337px;
+    width: 337px;
     max-height: 472px;
+		margin-bottom: 0;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
