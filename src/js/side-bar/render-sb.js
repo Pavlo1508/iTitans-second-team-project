@@ -46,6 +46,7 @@ function addStyle(allCategoryItems) {
 	allCategoryItems.style.color = '#4F2EE8';
     allCategoryItems.style.fontWeight = '700';	
 	}
+	
 }
 function resetStyle(previousItem) {
   	const bodyStyle = window.getComputedStyle(document.body);
