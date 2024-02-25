@@ -147,7 +147,6 @@ const item = document.querySelector('.sl-item');
 const removeBtns = document.querySelectorAll('.sl-remove');
 removeBtns.forEach(btn => {
 	btn.addEventListener('click', (event) => {
-		const clickedBtn = event.target;
 		const bookId = item.getAttribute('data-bookId')
 		removeFromLs(parsedData, bookId)
 	})
