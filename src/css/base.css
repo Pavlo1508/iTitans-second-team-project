@@ -291,6 +291,7 @@ summary {
 	}
 
 	.left-side {
+		display: block;
 		margin-bottom: 0;
 	}
 
