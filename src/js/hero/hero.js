@@ -19,13 +19,9 @@ function createMarkupForBookCard(book) {
   const { _id, author, book_image, title } = book;
   return `
     <li class="hero-list-card" data-cardID="${_id}">
-      <figure>
         <img class="hero-card-image" src="${book_image}" alt="${title}" />
-        <figcaption>
           <h3 class='book-title'>${title}</h3>
           <p class='book-author'>${author}</p>
-        </figcaption>
-      </figure>
     </li>
   `;
 }
