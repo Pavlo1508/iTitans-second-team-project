@@ -63,13 +63,13 @@ body {
 
 /* .dark-category-item {
   color: rgb(255, 255, 255, 0.6);
-}
+} */
 
 .dark-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 12px;
   height: 114px;
   background: rgba(17, 17, 17, 0.6);
-} */
+}
 
 @media screen and (min-width: 375px) {
   .sidebar {
@@ -120,9 +120,15 @@ body {
     min-height: 167px;
     background-color: #e0e0e0;
   }
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    height: 114px;
+    background: rgba(17, 17, 17, 0.6);
+  }
 }
 
 @media screen and (min-width: 1440px) {
+<<<<<<< Updated upstream
   .conteiner {
     width: 1440px;
     padding: 0 24px 0 24px;
@@ -136,12 +142,26 @@ body {
     left: 400px; /* Позиціонування .test зліва від .conteiner */
     top: 0;
     width: 996px;
+=======
+  #categories-list {
+    gap: 32px;
+    width: 328px;
+>>>>>>> Stashed changes
   }
 
   .sidebar {
     margin-top: 40px;
     max-width: 328px;
     max-height: 472px;
+<<<<<<< Updated upstream
     position: fixed;
+=======
+    width: 356px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    height: 114px;
+    background: rgba(17, 17, 17, 0.6);
+>>>>>>> Stashed changes
   }
 }
