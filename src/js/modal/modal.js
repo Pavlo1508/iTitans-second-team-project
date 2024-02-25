@@ -10,6 +10,7 @@ const refs = {
   modalCard: document.querySelector('.modal-card'),
   modalRemoveText: document.querySelector('.modal-remove-text'),
   modal: document.querySelector('.add-modal'),
+  heroList: document.querySelector('.hero-list'),
 };
 
 refs.modalCloseBtn.addEventListener('click', onCloseBtnClick);
@@ -17,6 +18,7 @@ refs.modalCloseBtn.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   refs.modalBackdrop.classList.remove('is-open');
   window.removeEventListener('keydown', onEscClick);
+  document.body.style.overflow = '';
 }
 
 refs.modalBackdrop.addEventListener('click', onBackdropClick);
@@ -27,11 +29,9 @@ function onBackdropClick(e) {
   } else {
     refs.modalBackdrop.classList.remove('is-open');
     window.removeEventListener('keydown', onEscClick);
+    document.body.style.overflow = '';
   }
 }
-
-// Прослуховувач потрібно занести в функцію, яка відкриватиме модальне вікно
-window.addEventListener('keydown', onEscClick);
 
 function onEscClick(e) {
   if (e.key !== 'Escape') {
@@ -39,28 +39,14 @@ function onEscClick(e) {
   }
   refs.modalBackdrop.classList.remove('is-open');
   window.removeEventListener('keydown', onEscClick);
+  document.body.style.overflow = '';
 }
-//   -------------
-function loadFromLS(key) {
-  return JSON.parse(localStorage.getItem(key)) || [];
-}
-
-function saveToLS(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-// ---------------------------
 
 async function onModalCreate(id) {
   const res = await axios.get(`https://books-backend.p.goit.global/books/${id}`);
   return res.data;
 }
 
-onModalCreate('643282b1e85766588626a0dc')
-  .then(data => modalBookTemplate(data))
-  .catch(error => console.log(error));
-
-// 643282b1e85766588626a0dc no desc
-// 643282b1e85766588626a086 desk
 function modalBookTemplate({ book_image, title, author, description, buy_links }) {
   const [amazon, apple_book] = buy_links;
   const amazonUrl = amazon.url;
@@ -96,70 +82,75 @@ function modalBookTemplate({ book_image, title, author, description, buy_links }
   refs.modalCard.innerHTML = markup;
 }
 
-// refs.modalAddBtn.addEventListener('click', onModalAddBtnClick);
-// function onModalAddBtnClick(key) {
-//   refs.modalAddBtn.classList.add('visually-hidden');
-//   refs.modalRemoveBtn.classList.remove('visually-hidden');
-//   refs.modalRemoveText.classList.remove('visually-hidden');
-//   refs.modal.classList.add('remove-modal');
-//   const objForLs = {};
-//   onModalCreate('643282b1e85766588626a086')
-//     .then(data => console.log(data))
-//     .catch(error => console.log(error));
-//   // saveToLS();
-// }
-
 refs.modalAddBtn.addEventListener('click', onModalAddBtnClick);
 
 function onModalAddBtnClick() {
-  // Определите ключ, который будет использоваться в локальном хранилище
-  const localStorageKey = 'booksData';
-
-  // Используйте onModalCreate для получения данных
-  onModalCreate('643282b1e85766588626a086')
+  onModalCreate(cardID)
     .then(data => {
-      // Добавьте данные в локальное хранилище
       const existingData = loadFromLS(localStorageKey);
       existingData.push(data);
       saveToLS(localStorageKey, existingData);
-
-      // Другие изменения в пользовательском интерфейсе, если нужно
       refs.modalAddBtn.classList.add('visually-hidden');
       refs.modalRemoveBtn.classList.remove('visually-hidden');
       refs.modalRemoveText.classList.remove('visually-hidden');
-      refs.modal.classList.add('remove-modal');
     })
     .catch(error => console.log(error));
 }
 
-// refs.modalRemoveBtn.addEventListener('click', onModalRemoveBtnClick);
-// function onModalRemoveBtnClick() {
-//   refs.modalAddBtn.classList.remove('visually-hidden');
-//   refs.modalRemoveBtn.classList.add('visually-hidden');
-//   refs.modalRemoveText.classList.add('visually-hidden');
-//   refs.modal.classList.remove('remove-modal');
-// }
 refs.modalRemoveBtn.addEventListener('click', onModalRemoveBtnClick);
 
+const localStorageKey = 'booksData';
+
 function onModalRemoveBtnClick() {
-  // Определите ключ, который используется в локальном хранилище
-  const localStorageKey = 'booksData';
-
-  // Получите все данные из локального хранилища
   const allData = loadFromLS(localStorageKey);
-
-  // Определите объект, который вы хотите удалить (в данном случае, например, первый элемент массива)
   const objectToRemove = allData[0];
-
-  // Удалите объект из массива данных
   const updatedData = allData.filter(item => item !== objectToRemove);
-
-  // Сохраните обновленные данные в локальное хранилище
   saveToLS(localStorageKey, updatedData);
-
-  // Другие изменения в пользовательском интерфейсе, если нужно
   refs.modalAddBtn.classList.remove('visually-hidden');
   refs.modalRemoveBtn.classList.add('visually-hidden');
   refs.modalRemoveText.classList.add('visually-hidden');
-  refs.modal.classList.remove('remove-modal');
+}
+
+refs.heroList.addEventListener('click', onItemClick);
+
+let cardID = null;
+
+function onItemClick(e) {
+  checkBtnStatus();
+  window.addEventListener('keydown', onEscClick);
+  const name = e.target.nodeName;
+  if (name !== 'IMG' && name !== 'H3' && name !== 'P' && name !== 'LI') {
+    return;
+  }
+  refs.modalBackdrop.classList.add('is-open');
+  const liElement = e.target.closest('li');
+  cardID = liElement.dataset.cardid;
+  onModalCreate(cardID)
+    .then(data => modalBookTemplate(data))
+    .catch(error => console.log(error));
+  document.body.style.overflow = 'hidden';
+}
+
+function loadFromLS(key) {
+  return JSON.parse(localStorage.getItem(key)) || [];
+}
+
+function saveToLS(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function checkBtnStatus() {
+  const dataFromLS = loadFromLS(localStorageKey);
+  dataFromLS.map(({ _id }) => {
+    console.log(_id === cardID);
+    if (_id === cardID) {
+      refs.modalAddBtn.classList.remove('visually-hidden');
+      refs.modalRemoveBtn.classList.add('visually-hidden');
+      refs.modalRemoveText.classList.add('visually-hidden');
+    } else {
+      refs.modalAddBtn.classList.add('visually-hidden');
+      refs.modalRemoveBtn.classList.remove('visually-hidden');
+      refs.modalRemoveText.classList.remove('visually-hidden');
+    }
+  });
 }
