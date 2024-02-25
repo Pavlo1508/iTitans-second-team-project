@@ -15,10 +15,10 @@ function dataParse() {
 export function renderSl(books) {
 	// функція приймає масив об'єктів з ls
 	books.forEach(book => {
-		// if (book.id === )
 		// створення елементів
 		const slItem = document.createElement('li');
 		slItem.classList.add('sl-item');
+		slItem.setAttribute('data-bookId', `${book._id}`)
 
 		const slImg = document.createElement('img');
 		slImg.setAttribute('src', `${book.book_image}`);
@@ -124,8 +124,6 @@ function initializeRender(dataFromLs) {
 					emptyPage.appendChild(emptyPageText);
 					emptyPage.appendChild(emptyPageImg);
 
-
-          console.error("Дані під вказаним ключем відсутні.");
         }
     } catch (error) {
         console.error("Помилка при розпарсюванні даних з локального сховища:", error);
@@ -133,3 +131,33 @@ function initializeRender(dataFromLs) {
 };
 
 initializeRender(parsedData);
+
+function hideSidebar() {
+	const tagTitle = document.querySelector('.hero-title');
+	const sidebar = document.querySelector('.sidebar')
+	if (tagTitle.textContent === 'Shopping List') {
+		sidebar.style.display = 'none';
+	}
+}
+
+hideSidebar();
+
+const item = document.querySelector('.sl-item');
+
+const removeBtns = document.querySelectorAll('.sl-remove');
+removeBtns.forEach(btn => {
+	btn.addEventListener('click', (event) => {
+		const clickedBtn = event.target;
+		const bookId = item.getAttribute('data-bookId')
+		removeFromLs(parsedData, bookId)
+	})
+})
+
+function removeFromLs(books, bookId) {
+	const updatedData = books.filter(book => book._id !== bookId);
+	localStorage.setItem('booksData', JSON.stringify(updatedData));
+	const itemToRemove = document.querySelector(`[data-bookId="${bookId}"]`);
+	if (itemToRemove) {
+		itemToRemove.remove();
+	}
+};
