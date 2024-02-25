@@ -6,9 +6,6 @@ import { scrollToUp } from './ToUpBtn';
 export async function initializeSb() {
     const categories = await getCategories();
     renderSb(categories);
-<<<<<<< Updated upstream
-};
-=======
 };
 initializeSb();
 scrollToUp();
@@ -16,4 +13,3 @@ scrollToUp();
 // import { initializeSb } from './side-bar/sidebar'
 // initializeSb();
 
->>>>>>> Stashed changes
