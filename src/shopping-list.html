@@ -4,28 +4,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Shopping List</title>
-	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/styles-shopping-list.css">
 </head>
 <body>
+
 	<!-- ======= Header ======= -->
-	<header>
+	<header class="header">
 		<load src="./partials/header.html" />
 	</header>
 	
 	<!-- ======= Main ======= -->
 	<main>
-		<section class="left-side">
-			<!--Side Bar-->
-			<load src="./partials/side-bar.html" />
-			<!--Fonds-->
-			<load src="./partials/fonds.html" />
-		</section>
-		<!-- Shopping List -->
-		<section class="right-side">
-			<h1 style="font-weight: 700; font-size: 30px;">Shopping <span class="list-word">List</span></h1>
-			<ul class="shopping-list"></ul>
-		</section>
+		<div class="container">
+			<section class="left-side">
+				<!--Side Bar-->
+				<load src="./partials/side-bar.html" />
+				<!--Fonds-->
+				<load src="./partials/fonds.html" />
+			</section>
+			<!-- Shopping List -->
+			<section class="right-side">
+				<load src="./partials/shopping-list.html" />
+			</section>
+		</div>
 	</main>
+	<script type="module" src="./js/main.js"></script>
+	<script type="module" src="./js/shoping-list/shopping-list.js"></script>
 </body>
 </html>
 
