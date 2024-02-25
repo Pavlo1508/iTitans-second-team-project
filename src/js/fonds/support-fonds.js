@@ -21,13 +21,6 @@ export const supporters = [
     imgRetinaThree: '../img/fonds/png/international-medical-corps@3x.png',
   },
   {
-    title: 'Medicins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
-    img: '../img/fonds/png/medicins-sans-frontieres@1x.png',
-    imgRetinaTwo: '../img/fonds/png/medicins-sans-frontieres@2x.png',
-    imgRetinaThree: '../img/fonds/png/medicins-sans-frontieres@3x.png',
-  },
-  {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
     img: '../img/fonds/png/razom@1x.png',
@@ -42,18 +35,25 @@ export const supporters = [
     imgRetinaThree: '../img/fonds/png/action-against-hunger@3x.png',
   },
   {
-    title: 'World vision',
-    url: 'https://www.wvi.org/emergencies/ukraine',
-    img: '../img/fonds/png/world-vision@1x.png',
-    imgRetinaTwo: '../img/fonds/png/world-vision@2x.png',
-    imgRetinaThree: '../img/fonds/png/world-vision@3x.png',
-  },
-  {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
     img: '../img/fonds/png/serhiy-prytula-charity-foundation@1x.png',
     imgRetinaTwo: '../img/fonds/png/serhiy-prytula-charity-foundation@2x.png',
     imgRetinaThree: '../img/fonds/png/serhiy-prytula-charity-foundation@3x.png',
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: '../img/fonds/png/medicins-sans-frontieres@1x.png',
+    imgRetinaTwo: '../img/fonds/png/medicins-sans-frontieres@2x.png',
+    imgRetinaThree: '../img/fonds/png/medicins-sans-frontieres@3x.png',
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    img: '../img/fonds/png/world-vision@1x.png',
+    imgRetinaTwo: '../img/fonds/png/world-vision@2x.png',
+    imgRetinaThree: '../img/fonds/png/world-vision@3x.png',
   },
   {
     title: 'UNITED24',
