@@ -108,8 +108,24 @@ function initializeRender(dataFromLs) {
             } else {
                 console.error("Дані з локального сховища не є масивом.");
             }
-        } else {
-            console.error("Дані під вказаним ключем відсутні.");
+				} else {
+					const emptyPage = document.createElement('div');
+					emptyPage.classList.add('empty-page-box');
+
+					const emptyPageText = document.createElement('p');
+					emptyPageText.classList.add('empty-page-text');
+					emptyPageText.textContent = 'This page is empty, add some books and proceed to order.';
+
+					const emptyPageImg = document.createElement('img');
+					emptyPageImg.classList.add('empty-page-img');
+					emptyPageImg.setAttribute('src', './img/png/IMG_96061.png')
+
+					slList.appendChild(emptyPage);
+					emptyPage.appendChild(emptyPageText);
+					emptyPage.appendChild(emptyPageImg);
+
+
+          console.error("Дані під вказаним ключем відсутні.");
         }
     } catch (error) {
         console.error("Помилка при розпарсюванні даних з локального сховища:", error);

@@ -99,6 +99,19 @@
 	right: 14px;
 }
 
+.empty-page-text {
+	width: 244px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.29;
+	letter-spacing: -0.02em;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.empty-page-img {
+	margin: 0 auto;
+}
 @media screen and (min-width: 768px) {
 	.shopping-list-page .sidebar {
 		display: block;
