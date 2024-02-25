@@ -40,13 +40,13 @@
 
 /* .dark-category-item {
   color: rgb(255, 255, 255, 0.6);
-}
+} */
 
 .dark-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 12px;
   height: 114px;
   background: rgba(17, 17, 17, 0.6);
-} */
+}
 
 @media screen and (min-width: 768px) {
   #categories-list {
@@ -64,9 +64,31 @@
     min-height: 167px;
     background-color: #e0e0e0;
   }
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    height: 114px;
+    background: rgba(17, 17, 17, 0.6);
+  }
 }
 
 @media screen and (min-width: 1440px) {
+  .conteiner {
+    width: 1440px;
+    padding: 0 24px 0 24px;
+    margin: auto;
+
+    position: relative;
+  }
+
+  .test {
+    position: absolute; /* Позиціонування .test відносно .conteiner */
+    left: 400px; /* Позиціонування .test зліва від .conteiner */
+    top: 0;
+    width: 996px;
+  #categories-list {
+    gap: 32px;
+    width: 328px;
+  }
 	#categories-list {
 		gap: 32px;
 		width: 328px;
@@ -75,8 +97,16 @@
   .sidebar {
     max-width: 356px;
     max-height: 472px;
+    position: fixed;
+    width: 356px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    height: 114px;
+    background: rgba(17, 17, 17, 0.6);
 		width: 356px;
 		margin-bottom: 86px;
   }
 	
+}
 }
