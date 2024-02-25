@@ -37,7 +37,7 @@
   border: 2px solid black;
   border-radius: 18px;
   width: 335px;
-  height: 762px;
+  height: fit-content;
   background-color: #fff;
   position: absolute;
   top: 50%;
@@ -171,10 +171,6 @@
   margin: auto;
 }
 
-.remove-modal {
-  height: 806px;
-}
-
 /* ========== DARK ========== */
 
 .dark-modal {
@@ -216,12 +212,7 @@
 @media screen and (min-width: 768px) {
   .add-modal {
     width: 579px;
-    height: 465px;
     padding: 40px;
-  }
-
-  .remove-modal {
-    height: 501px;
   }
 
   .modal-close-btn {
@@ -276,9 +267,5 @@
     font-size: 12px;
     line-height: 1.17;
     max-width: 324px;
-  }
-
-  .remove-modal {
-    height: 501px;
   }
 }
