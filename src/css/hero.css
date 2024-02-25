@@ -63,13 +63,9 @@
   position: absolute;
   right: 20px;
 }
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .hero-section {
     padding: 50px 0 100px;
-  }
-  .hero-container {
-    max-width: 768px;
-    padding: 0 32px;
   }
   .hero-list-wrapper:not(:last-child) {
     margin-bottom: 106px;
@@ -101,10 +97,6 @@
   }
 }
 @media screen and (min-width: 1440px) {
-  .hero-container {
-    min-width: 1044px;
-    padding: 0 24px;
-  }
   .hero-list-wrapper {
     min-width: 996px;
   }
@@ -137,4 +129,4 @@
   .card-button {
     right: 220px;
   }
-} */
+}

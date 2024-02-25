@@ -254,4 +254,35 @@ summary {
 	padding: 0 20px;
 }
 
+.left-side {
+	margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+	.container {
+		width: 768px;
+		padding: 0 32px;
+	}
+
+	.left-side {
+		margin-bottom: 100px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.container {
+		width: 1440px;
+		padding: 0 24px;
+		margin: 0 auto;
+		display: flex;
+		gap: 40px;
+	}
+
+	.left-side {
+		margin-bottom: 0;
+	}
+}
+
+	
+
 
