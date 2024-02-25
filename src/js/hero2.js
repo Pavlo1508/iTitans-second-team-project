@@ -103,7 +103,6 @@ function render(imgs) {
 }
 
 
-
 async function getImg() {
     
     const params = new URLSearchParams({
