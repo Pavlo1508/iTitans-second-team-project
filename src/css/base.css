@@ -272,6 +272,8 @@ summary {
 
 	.left-side {
 		margin-bottom: 100px;
+		display: flex;
+		gap: 32px;
 	}
 
 	.right-side {

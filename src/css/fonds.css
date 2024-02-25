@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: 24px 40px 20px;
   width: 335px;
-  max-height: 352px;
+  max-height: 460px;
   border-radius: 16px;
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
 }
@@ -14,8 +14,6 @@
   display: flex;
   gap: 12px;
   margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .supporters__heading {
@@ -42,8 +40,6 @@
 
 .supporters__number {
   display: inline-block;
-  font-weight: 400;
-  font-family: 'DM Sans';
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.04em;
@@ -99,13 +95,18 @@
 }
 
 @media screen and (min-width: 768px) {
+	.swiper-slide {
+		height: auto !important;
+	}
+
   .supporters {
     max-height: 472px;
-    padding-bottom: 14px;
   }
 
   .swiper {
     margin-bottom: 32px;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
   }
 
   .supporters__btn {
