@@ -1,13 +1,3 @@
-body {
-  background-color: #f6f6f6;
-}
-
-.conteiner {
-  width: 375px;
-  padding: 0 20px 0 20px;
-  margin: 0 auto;
-}
-
 #categories-list {
   display: flex;
   width: 307px;
@@ -29,36 +19,23 @@ body {
 }
 
 .sidebar {
-  display: flex;
-  justify-content: center;
-  max-width: 335px;
   max-height: 228px;
   overflow-y: scroll;
-  margin-top: 40px;
-  border: solid 1px #000;
+	margin-bottom: 40px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
   border-radius: 12px;
-  background-color: inherit;
 }
 
 .scrollbar::-webkit-scrollbar {
   width: 8px;
-  background-color: inherit;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 12px;
   height: 114px;
   background-color: #e0e0e0;
-}
-
-.test {
-  width: 335px;
-  height: 485px;
-  margin-top: 40px;
-  background-color: antiquewhite;
 }
 
 /* .dark-category-item {
@@ -71,48 +48,15 @@ body {
   background: rgba(17, 17, 17, 0.6);
 }
 
-@media screen and (min-width: 375px) {
-  .sidebar {
-    width: 335px;
-    max-height: 228px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .test {
-    width: 335px;
-    height: 485px;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: antiquewhite;
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .conteiner {
-    width: 768px;
-    padding: 0 32px 0 32px;
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
-  }
-
-  .test {
-    width: 335px;
-    height: 472px;
-    margin-top: 40px;
-    background-color: antiquewhite;
-  }
-
   #categories-list {
     gap: 32px;
   }
 
   .sidebar {
-    margin-top: 40px;
-    max-width: 337px;
+    width: 337px;
     max-height: 472px;
-    border: solid 1px #000;
+		margin-bottom: 0;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
@@ -145,10 +89,13 @@ body {
     gap: 32px;
     width: 328px;
   }
+	#categories-list {
+		gap: 32px;
+		width: 328px;
+	}
 
   .sidebar {
-    margin-top: 40px;
-    max-width: 328px;
+    max-width: 356px;
     max-height: 472px;
     position: fixed;
     width: 356px;
@@ -157,6 +104,9 @@ body {
     border-radius: 12px;
     height: 114px;
     background: rgba(17, 17, 17, 0.6);
+		width: 356px;
+		margin-bottom: 86px;
   }
+	
 }
 }

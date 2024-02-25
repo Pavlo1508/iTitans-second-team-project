@@ -13,3 +13,6 @@ scrollToUp();
 // import { initializeSb } from './side-bar/sidebar'
 // initializeSb();
 
+// ПЕРЕНЕСТИ В МЕЙН
+// import { initializeSb } from './side-bar/sidebar'
+// initializeSb();
