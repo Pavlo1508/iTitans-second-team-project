@@ -1,8 +1,6 @@
 const slList = document.querySelector('.shopping-list');
 const dataFromLs = localStorage.getItem('booksData');
-console.log(dataFromLs);
 const parsedData = dataParse();
-console.log(parsedData);
 
 function dataParse() {
 	let parsedData;
@@ -17,7 +15,6 @@ function dataParse() {
 export function renderSl(books) {
 	// функція приймає масив об'єктів з ls
 	books.forEach(book => {
-		console.log(book);
 		// if (book.id === )
 		// створення елементів
 		const slItem = document.createElement('li');
@@ -33,26 +30,44 @@ export function renderSl(books) {
 
 		const bookTitle = document.createElement('h3');
 		bookTitle.classList.add('sl-book-title');
-		bookTitle.textContent = `${book.title}`
-
-		const bookAuthor = document.createElement('p');
-		bookAuthor.classList.add('sl-book-author');
-		bookAuthor.textContent = `${book.author}`
+		bookTitle.textContent = `${book.title}`;
+		
+		const bookCategory = document.createElement('p');
+		bookCategory.classList.add('sl-book-category');
+		bookCategory.textContent = `${book.list_name}`
 
 		const bookDescription = document.createElement('p');
 		bookDescription.classList.add('sl-book-description');
-		bookDescription.textContent = `${book.description}`
+		bookDescription.textContent = `${book.description}`;
+
+		const bookSellBox = document.createElement('div');
+		bookSellBox.classList.add('sl-sell-box')
+
+		const bookAuthor = document.createElement('p');
+		bookAuthor.classList.add('sl-book-author');
+		bookAuthor.textContent = `${book.author}`;
 
 		const bookLinks = document.createElement('div');
 		bookLinks.classList.add('sl-book-links');
 
+		const slBtn = document.createElement('button');
+		slBtn.classList.add('sl-remove');
+
+		const slBtnImg = document.createElement('img');
+		slBtnImg.setAttribute('src', "./img/png/dump.png");
+		slBtnImg.classList.add('sl-remove-img');
+
 		slList.appendChild(slItem);
+		slItem.appendChild(slBtn);
+		slBtn.appendChild(slBtnImg);
 		slItem.appendChild(slImg);
 		slItem.appendChild(slInfo);
 		slInfo.appendChild(bookTitle);
-		slInfo.appendChild(bookAuthor);
+		slInfo.appendChild(bookCategory);
 		slInfo.appendChild(bookDescription);
-		slInfo.appendChild(bookLinks);
+		slInfo.appendChild(bookSellBox);
+		bookSellBox.appendChild(bookAuthor);
+		bookSellBox.appendChild(bookLinks);
 
 		if (Array.isArray(book.buy_links)) {
 			book.buy_links.forEach(link => {
@@ -64,7 +79,6 @@ export function renderSl(books) {
 					const bookLinkAmazonImg = document.createElement('img');
 					bookLinkAmazonImg.classList.add('sl-book-link-amazon-img');
 					bookLinkAmazonImg.setAttribute('src', './img/png/amazon.png')
-					bookLinks.appendChild(bookLinkAmazon);
 					bookLinkAmazon.appendChild(bookLinkAmazonImg);
 				}
       });
@@ -74,12 +88,11 @@ export function renderSl(books) {
 				if (link.name === 'Apple Books') {
 					const bookLinkAb = document.createElement('a');		
 					bookLinkAb.setAttribute('href', link.url);
-					bookLinkAb.classList.add('sl-book-link-amazon');
+					bookLinkAb.classList.add('sl-book-link-ab');
 					bookLinks.appendChild(bookLinkAb);
 					const bookLinkAbImg = document.createElement('img');
-					bookLinkAbImg.classList.add('sl-book-link-amazon-img');
+					bookLinkAbImg.classList.add('sl-book-link-ab-img');
 					bookLinkAbImg.setAttribute('src', './img/png/Apple books.png')
-					bookLinks.appendChild(bookLinkAb);
 					bookLinkAb.appendChild(bookLinkAbImg);
 				};
       });
