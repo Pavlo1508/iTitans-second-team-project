@@ -1,3 +1,6 @@
+.hero-list-wrapper {
+  position: relative;
+}
 .hero-list-wrapper:not(:last-child) {
   margin-bottom: 94px;
 }
@@ -34,6 +37,9 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .book-author {
   color: #b4afaf;
@@ -61,15 +67,38 @@
   border-radius: 40px;
   background-color: transparent;
   position: absolute;
-  right: 20px;
+  right: 0;
 }
-/* @media screen and (min-width: 768px) {
+
+/*========================*/
+.hidden-text {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  background-color: #eac645;
+  border-radius: 0 0 8px 8px;
+  padding: 26px 52px;
+  text-align: center;
+  top: 414px;
+  transform: translateY(124%);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 18px;
+  color: #111111;
+  transition: transform 250ms ease-in-out;
+}
+.card-image-cont {
+  position: relative;
+  overflow: hidden;
+}
+.card-image-cont:hover .hidden-text {
+  transform: translateY(2%);
+}
+
+@media screen and (min-width: 768px) {
   .hero-section {
     padding: 50px 0 100px;
-  }
-  .hero-container {
-    max-width: 768px;
-    padding: 0 32px;
   }
   .hero-list-wrapper:not(:last-child) {
     margin-bottom: 106px;
@@ -96,15 +125,17 @@
   .book-author {
     margin-bottom: 20px;
   }
-  .card-button {
-    right: 32px;
+  .book-title {
+    width: 218px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-image-cont:hover .hidden-text {
+    transform: translateY(-232%);
   }
 }
 @media screen and (min-width: 1440px) {
-  .hero-container {
-    min-width: 1044px;
-    padding: 0 24px;
-  }
   .hero-list-wrapper {
     min-width: 996px;
   }
@@ -134,7 +165,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .card-button {
-    right: 220px;
+  .card-image-cont:hover .hidden-text {
+    transform: translateY(-325%);
   }
-} */
+}

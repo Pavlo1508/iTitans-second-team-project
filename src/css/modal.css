@@ -37,7 +37,7 @@
   border: 2px solid black;
   border-radius: 18px;
   width: 335px;
-  height: 762px;
+  height: fit-content;
   background-color: #fff;
   position: absolute;
   top: 50%;
@@ -127,7 +127,7 @@
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
-.card {
+.modal-card {
   margin-bottom: 44px;
 }
 
@@ -171,10 +171,6 @@
   margin: auto;
 }
 
-.remove-modal {
-  height: 806px;
-}
-
 /* ========== DARK ========== */
 
 .dark-modal {
@@ -216,12 +212,7 @@
 @media screen and (min-width: 768px) {
   .add-modal {
     width: 579px;
-    height: 465px;
     padding: 40px;
-  }
-
-  .remove-modal {
-    height: 501px;
   }
 
   .modal-close-btn {
@@ -236,7 +227,7 @@
     height: 18px;
   }
 
-  .card {
+  .modal-card {
     display: flex;
     gap: 24px;
     margin-bottom: 40px;
@@ -276,9 +267,5 @@
     font-size: 12px;
     line-height: 1.17;
     max-width: 324px;
-  }
-
-  .remove-modal {
-    height: 501px;
   }
 }
