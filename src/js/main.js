@@ -1,3 +1,4 @@
-import './side-bar/sidebar'
+import './side-bar/sidebar';
 import './hero/hero';
-import './modal/modal'
+import './modal/modal';
+import './ToUpBtn'
