@@ -1,6 +1,6 @@
 import { refs } from './refs-modal';
-import '/src/img/png/amazon.png';
-import '/src/img/png/Apple books.png';
+import '../../img/png/amazon.png';
+import '../../img/png/Apple books.png';
 export function modalBookTemplate({ book_image, title, author, description, buy_links }) {
   const [amazon, apple_book] = buy_links;
   const amazonUrl = amazon.url;
