@@ -1,7 +1,5 @@
 import axios from 'axios';
-
 let cachedBooksData = null;
-
 async function fetchBooksDataIfNeeded() {
   if (!cachedBooksData) {
     try {
@@ -14,7 +12,6 @@ async function fetchBooksDataIfNeeded() {
   }
   return cachedBooksData;
 }
-
 function createMarkupForBookCard(book) {
   const { _id, author, book_image, title } = book;
   return `
@@ -30,7 +27,13 @@ function createMarkupForBookCard(book) {
     </li>
   `;
 }
-
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 export async function renderBookCards() {
   try {
     let booksData = await fetchBooksDataIfNeeded();
@@ -55,29 +58,76 @@ export async function renderBookCards() {
           <ul class="hero-card-list">
             ${booksMarkup}
           </ul>
-          <button class='card-button' type='button'>See More</button>
+          <button class='card-button' type='button' data-category="${category.list_name}">See More</button>
         </li>
       `;
       gallery.insertAdjacentHTML('beforeend', categoryMarkup);
     }
+    document.querySelectorAll('.card-button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const categoryName = button.dataset.category;
+        try {
+          const response = await axios.get(
+            `https://books-backend.p.goit.global/books/category?category=${categoryName}`
+          );
+          const categoryBooks = response.data;
+          displayCategoryBooks(categoryBooks, categoryName);
+        } catch (error) {
+          console.error('Error fetching category books:', error);
+        }
+      });
+    });
+    const categoriesList = document.getElementById('categories-list');
+    categoriesList.querySelectorAll('.category-item').forEach(category => {
+      category.addEventListener('click', async () => {
+        const categoryName = category.dataset.text;
+        try {
+          const response = await axios.get(
+            `https://books-backend.p.goit.global/books/category?category=${categoryName}`
+          );
+          const categoryBooks = response.data;
+          displayCategoryBooks(categoryBooks, categoryName);
+        } catch (error) {
+          console.error('Error fetching category books:', error);
+        }
+      });
+    });
   } catch (error) {
     console.error('Error rendering book cards:', error);
   }
 }
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-renderBookCards();
-
 window.addEventListener('resize', () => {
   document.querySelector('.hero-list').innerHTML = '';
+  document.querySelector(
+    '.hero-title'
+  ).innerHTML = `<h1 class="hero-title">Best Sellers <span class="hero-accent">Books</span></h1>`;
   renderBookCards();
 });
-// ПЕРЕНЕСТИ В MAIN.JS
-// import './hero';
+function createMarkupForBookCardCategory(book) {
+  const { _id, author, book_image, title } = book;
+  return `
+    <li class="hero-list-card category-card" data-cardID="${_id}">
+    <div class='card-image-cont'>
+        <img class="hero-card-image" src="${book_image}" alt="${title}" />
+        <p class='hidden-text'>Quick View</p>
+        </div>
+        <div>
+          <h3 class='book-title'>${title}</h3>
+          <p class='book-author'>${author}</p>
+        </div>
+    </li>
+  `;
+}
+function displayCategoryBooks(categoryBooks, categoryName) {
+  const gallery = document.querySelector('.hero-list');
+  gallery.classList.add('category-list');
+  gallery.innerHTML = '';
+  categoryBooks.forEach(book => {
+    const bookMarkup = createMarkupForBookCardCategory(book);
+    gallery.insertAdjacentHTML('beforeend', bookMarkup);
+  });
+  document.querySelector('.hero-title').textContent = categoryName;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  renderBookCards();
+});

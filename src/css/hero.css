@@ -172,3 +172,59 @@
     transform: translateY(-325%);
   }
 }
+
+.dark-hero {
+	color: #FFFFFF;
+}
+
+.category-card:not(:last-child) {
+	margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+	.category-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 25px;
+		row-gap: 40px;
+	}
+
+	.book-title {
+		width: 218px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.category-card:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	.book-author {
+		width: 218px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.category-list {
+		gap: 24px;
+		row-gap: 40px;
+	}
+
+	.book-title {
+		width: 180px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.book-author {
+		width: 180px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
