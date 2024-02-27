@@ -32,9 +32,11 @@ function changeTheme() {
   }
 }
 //===============================//
+
 const menuCont = document.querySelector('.mobile-menu-container');
 const openBtn = document.querySelector('.btn-menu');
 const fondsCont = document.querySelector('.supporters');
+
 openBtn.addEventListener('click', onBtnOpenClick);
 function onBtnOpenClick() {
   if (menuCont.classList.contains('none')) {
