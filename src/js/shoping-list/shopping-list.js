@@ -87,8 +87,6 @@ slList.addEventListener('click', event => {
 		listItem.remove();
 		const bookId = listItem.dataset.bookid;
 		updateLs(parsedData => removeBookFromLs(parsedData, bookId));
-	initializeRender(parsedData)
-	pagination();
 	});
 
 function removeBookFromLs(books, bookId) {
@@ -104,8 +102,11 @@ function updateLs(updateFunction) {
 };
 
 if (slList.getElementsByTagName('li').length > 3) {
-		pagination();
-		} else {
-		const arrowsLAndR = document.querySelector('.pagination-button');
-		arrowsLAndR.sttyle.display = 'none';
-		}
+	pagination();
+		} else if (slList.getElementsByTagName('li').length <= 3){
+	const arrowsLAndR = document.querySelectorAll('.pagination-button');
+	arrowsLAndR.forEach(arrow => {
+		arrow.style.display = 'none';
+	})} else {
+		templateEmptySl();
+	}
