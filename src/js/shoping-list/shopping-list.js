@@ -82,11 +82,13 @@ function initializeRender(dataFromLs) {
 initializeRender(parsedData);
 
 slList.addEventListener('click', event => {
-    const removeBtn = event.target.closest('.sl-remove');
+	const removeBtn = event.target.closest('.sl-remove');
+	if (removeBtn) {
 		const listItem = removeBtn.closest('.sl-item');
 		listItem.remove();
 		const bookId = listItem.dataset.bookid;
 		updateLs(parsedData => removeBookFromLs(parsedData, bookId));
+	}
 	});
 
 function removeBookFromLs(books, bookId) {
