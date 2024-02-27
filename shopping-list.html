@@ -5,9 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Shopping List</title>
 	
-  <script type="module" crossorigin src="/iTitans-second-team-project/assets/shopping-list-d53975f0.js"></script>
-  <link rel="modulepreload" crossorigin href="/iTitans-second-team-project/assets/modal-bf86b0ae.js">
-  <link rel="stylesheet" href="/iTitans-second-team-project/assets/modal-a73633fa.css">
+	
+  <script type="module" crossorigin src="/iTitans-second-team-project/assets/shopping-list-1fdd42d6.js"></script>
+  <link rel="modulepreload" crossorigin href="/iTitans-second-team-project/assets/modal-54bde1da.js">
+  <link rel="stylesheet" href="/iTitans-second-team-project/assets/modal-5831c233.css">
+  <link rel="stylesheet" href="/iTitans-second-team-project/assets/shopping-list-046dbe58.css">
 </head>
 <body>
 
@@ -87,12 +89,25 @@
 			<section class="right-side">
 				<div class="hero-container">
 	<h1 class="hero-title shopping-list-title">Shopping <span class="hero-accent">List</span></h1>
-	<ul class="shopping-list"></ul>
 </div>
 
+<div class="pagination-container">
+
+	<ul id="paginated-list" class="shopping-list" data-current-page="1" aria-live="polite"></ul>
+
+	<div class="str-box">
+		<button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">&lt;</button>
+		<div id="pagination-numbers">
+			
+		</div>
+		<button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">&gt;</button>
+	</div>
+
+</div>
 			</section>
 		</div>
 	</main>
+	
 	
 	
 </body>
