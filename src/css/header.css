@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border: 1.5px solid #111;
   border-radius: 0 0 8px 8px;
   z-index: 1;
@@ -24,7 +24,7 @@
 }
 .nav-link {
   display: block;
-  background-color: #eac645;
+  background-color: #EAC645;
   border-radius: 36px;
   padding: 8px 16px;
   width: 72px;
@@ -73,7 +73,7 @@
   left: 0;
   right: 0;
   top: 0;
-  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  background: linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
   box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   transition: 0.4s;
@@ -94,7 +94,7 @@
   box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 .switch_input:checked + .switch_slider {
-  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  background: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
   box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 .switch_input:checked + .switch_slider::before {
@@ -117,7 +117,7 @@
   stroke: #111;
 }
 .btn-close:hover .icon-close {
-  stroke: #4f2ee8;
+  stroke: #4F2EE8;
   transition: 0.4s;
 }
 .btn-menu {
@@ -131,7 +131,7 @@
   align-items: center;
 }
 .btn-menu:hover .icon-menu {
-  stroke: #4f2ee8;
+  stroke: #4F2EE8;
   transition: 0.4s;
 }
 .user-photo {
@@ -151,7 +151,7 @@
   border-radius: 36px;
   width: 184px;
   height: 45px;
-  background-color: #4f2ee8;
+  background-color: #4F2EE8;
 }
 @media screen and (min-width: 768px) {
   .header-container {
@@ -179,28 +179,6 @@
     margin-right: auto;
   }
 }
-/* Dark theme */
-.dark-mode {
-  color: #fff;
-  background-color: #111111;
-  border: 1.5px solid #fff;
-  transition: 0.4s;
-}
-.dark-mode-body {
-  color: #fff;
-  background-color: #202024;
-  transition: 0.4s;
-}
-.dark-icons {
-  fill: #fff;
-  color: #fff;
-  stroke: #fff;
-  transition: 0.4s;
-}
-.dark-menu {
-  stroke: #fff;
-  transition: 0.4s;
-}
 /* ---------- */
 .mobile-menu-container {
   position: fixed;
@@ -224,7 +202,7 @@
   stroke: #111;
 }
 .btn-menu:hover .icon-menu-close {
-  stroke: #4f2ee8;
+  stroke: #4F2EE8;
   transition: 0.4s;
 }
 body.mobile-menu-open {
@@ -242,4 +220,30 @@ body.mobile-menu-open {
 .shop-icon {
   stroke: #fff;
   fill: #fff;
+}
+/* Dark theme */
+.dark-mode {
+  color: #fff;
+  background-color: #111111;
+  border: 1.5px solid #fff;
+  transition: 0.4s;
+}
+.dark-mode-body {
+  color: #fff;
+  background-color: #202024;
+  transition: 0.4s;
+}
+.dark-icons {
+  fill: #fff;
+  color: #fff;
+  stroke: #fff;
+  transition: 0.4s;
+}
+.dark-menu {
+  stroke: #fff;
+  transition: 0.4s;
+}
+.dark-icon-menu {
+  fill: #fff;
+  stroke: #fff;
 }

@@ -5,14 +5,14 @@ const shoppingList = document.querySelector('.nav-shopping');
 const shoppingIcon = document.querySelector('.shopping-icon');
 const body = document.body;
 const header = document.querySelector('header');
-const closeIcon = document.querySelector('.icon-close');
+const closeIcon = document.querySelector('.icon-menu');
 const key = 'dark-theme';
 switcher.addEventListener('click', changeTheme);
 function changeTheme() {
   if (switcher.checked) {
     shoppingIcon.classList.add('dark-icons');
     shoppingList.classList.add('dark-icons');
-    closeIcon.classList.add('dark-icons');
+    closeIcon.classList.add('dark-icon-menu');
     logo.classList.add('dark-icons');
     menu.classList.add('dark-menu');
     body.classList.add('dark-mode-body');
@@ -21,20 +21,17 @@ function changeTheme() {
   } else {
     shoppingIcon.classList.remove('dark-icons');
     shoppingList.classList.remove('dark-icons');
-    closeIcon.classList.remove('dark-icons');
+    closeIcon.classList.remove('dark-icon-menu');
     logo.classList.remove('dark-icons');
     menu.classList.remove('dark-menu');
     body.classList.remove('dark-mode-body');
     header.classList.remove('dark-mode');
   }
 }
-
-
 //===============================//
 const menuCont = document.querySelector('.mobile-menu-container');
 const openBtn = document.querySelector('.btn-menu');
 const fondsCont = document.querySelector('.supporters');
-
 openBtn.addEventListener('click', () => {
   if (menuCont.classList.contains('none')) {
     menuCont.classList.remove('none');
@@ -43,6 +40,12 @@ openBtn.addEventListener('click', () => {
         <use href="./img/fonds/svg/icons.svg#icon-burg-close"></use>
       </svg>`;
     document.body.classList.add('mobile-menu-open');
+    const btnOpen = document.querySelector('.icon-menu-close');
+    if (switcher.checked) {
+      btnOpen.classList.add('dark-icon-menu');
+    } else {
+      btnOpen.classList.remove('dark-icon-menu');
+    }
   } else {
     menuCont.classList.add('none');
     fondsCont.classList.remove('visually-hidden');
