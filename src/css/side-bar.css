@@ -78,5 +78,16 @@
 		width: 356px;
 		margin-bottom: 86px;
   }
-	
+}
+/* Dark Theme */
+
+.dark-category-item {
+	color: green;
+}
+
+/* Active Categories */
+
+.active-category {
+	text-transform: uppercase;
+	color: #4F2EE8;
 }

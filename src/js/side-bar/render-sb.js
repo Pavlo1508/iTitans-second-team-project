@@ -2,39 +2,62 @@ const categoriesList = document.getElementById('categories-list');
 let previousItem = '';
 export function renderSb(categories) {
 
-    categories.forEach(category => {
+	categories.forEach(category => {
 		const categoryItem = document.createElement('li');
 		// створюємо лішку з кожного елементу масиву
 		categoryItem.classList.add('category-item');
-		categoryItem.classList.add('dark-category-item');
 		// додаєм до лішки клас
 		categoryItem.textContent = category;
 		// додаєм до лішки текст який буде з'являтись
 		categoriesList.appendChild(categoryItem);
 		// рендерим створену лішку
 	});
-
-	const allCategoryItems = document.querySelectorAll('.category-item');
 	
-	allCategoryItems.forEach(allCategoryItems => {
-	allCategoryItems.addEventListener('click', () => {
-		addStyle(allCategoryItems);
-		allCategoryItems.textContent = allCategoryItems.textContent.toUpperCase();
-		// при кліку переводимо текст до верхнього регістру
-        if (previousItem && previousItem !== allCategoryItems) {
-			previousItem.textContent = previousItem.getAttribute('data-text');
-			resetStyle(previousItem);
+	categoriesList.addEventListener('click', event => {
+		const targetCategorie = event.target;
+		if (!targetCategorie.classList.contains('active-category')) {
+			targetCategorie.classList.add('active-category');
+			previousItem = targetCategorie.textContent;
+			;
+		} else {
+			targetCategorie.classList.remove('active-category');
 		}
+		const allCategoryItems = document.querySelectorAll('.category-item')
+		if (previousItem !== targetCategorie.textContent) {
+				allCategoryItems.forEach(categoryItem => categoryItem.classList.remove('active-category'));
+			}
+	});
+}
+	// const allCategoryItems = document.querySelectorAll('.category-item');
+
+// 	function styleOfActiveCategories(event) {
+// 		const acceptedCategorie = event.currentTarget.getElementByClass('.category-item');
+// 		if (acceptedCategorie.textContent.toLowerCase) {
+// 				acceptedCategorie.classList.toggle('active-category')
+// 		}
+// 	}
+// }
+	
+	// allCategoryItems.forEach(allCategoryItems => {
+	// allCategoryItems.addEventListener('click', () => {
+	// 	addStyle(allCategoryItems);
+		// allCategoryItems.textContent = allCategoryItems.textContent.toUpperCase();
+		// при кліку переводимо текст до верхнього регістру
+        // if (previousItem && previousItem !== allCategoryItems) {
+			// previousItem.textContent = previousItem.getAttribute('data-text');
+			// resetStyle(previousItem);
+		// }
 		// перевіряємо, чи є попередній елемент та чи він не є вибраним елементом
 		// якщо так, то змінюємо текст попереднього елемента на текст який був спочатку.
-		previousItem = allCategoryItems;
+		// previousItem = allCategoryItems;
 		// зберігаєм текст вибраного єлемента для наступних прівнянь
-        });
+        // });
 
-        allCategoryItems.setAttribute('data-text', allCategoryItems.textContent);
+        // allCategoryItems.setAttribute('data-text', allCategoryItems.textContent);
 		// додаєм артибут у якому зберігаєм текст
-	});	
-}
+	// });	
+
+
 
 function addStyle(allCategoryItems) {
 	const bodyStyle = window.getComputedStyle(document.body);
