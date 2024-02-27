@@ -27,6 +27,7 @@ function createMarkupForBookCard(book) {
     </li>
   `;
 }
+10:12
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -34,6 +35,13 @@ function shuffleArray(array) {
   }
   return array;
 }
+window.addEventListener('resize', () => {
+  document.querySelector('.hero-list').innerHTML = '';
+  document.querySelector(
+    '.hero-title'
+  ).innerHTML = `<h1 class="hero-title">Best Sellers <span class="hero-accent">Books</span></h1>`;
+  renderBookCards();
+});
 export async function renderBookCards() {
   try {
     let booksData = await fetchBooksDataIfNeeded();
@@ -79,30 +87,25 @@ export async function renderBookCards() {
     });
     const categoriesList = document.getElementById('categories-list');
     categoriesList.querySelectorAll('.category-item').forEach(category => {
-      category.addEventListener('click', async () => {
-        const categoryName = category.dataset.text;
-        try {
-          const response = await axios.get(
-            `https://books-backend.p.goit.global/books/category?category=${categoryName}`
-          );
-          const categoryBooks = response.data;
-          displayCategoryBooks(categoryBooks, categoryName);
-        } catch (error) {
-          console.error('Error fetching category books:', error);
-        }
-      });
+      if (category.textContent !== 'All categories') {
+        category.addEventListener('click', async () => {
+          const categoryName = category.dataset.text;
+          try {
+            const response = await axios.get(
+              `https://books-backend.p.goit.global/books/category?category=${categoryName}`
+            );
+            const categoryBooks = response.data;
+            displayCategoryBooks(categoryBooks, categoryName);
+          } catch (error) {
+            console.error('Error fetching category books:', error);
+          }
+        });
+      }
     });
   } catch (error) {
     console.error('Error rendering book cards:', error);
   }
 }
-window.addEventListener('resize', () => {
-  document.querySelector('.hero-list').innerHTML = '';
-  document.querySelector(
-    '.hero-title'
-  ).innerHTML = `<h1 class="hero-title">Best Sellers <span class="hero-accent">Books</span></h1>`;
-  renderBookCards();
-});
 function createMarkupForBookCardCategory(book) {
   const { _id, author, book_image, title } = book;
   return `
@@ -129,5 +132,13 @@ function displayCategoryBooks(categoryBooks, categoryName) {
   document.querySelector('.hero-title').textContent = categoryName;
 }
 document.addEventListener('DOMContentLoaded', () => {
+  renderBookCards();
+});
+const firstCategoryItems = document.getElementById('category-el');
+firstCategoryItems.addEventListener('click', () => {
+  document.querySelector('.hero-list').innerHTML = '';
+  document.querySelector(
+    '.hero-title'
+  ).innerHTML = `<h1 class="hero-title">Best Sellers <span class="hero-accent">Books</span></h1>`;
   renderBookCards();
 });
