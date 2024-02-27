@@ -1,6 +1,6 @@
 import { refs } from './refs-modal';
-import '../../img/png/amazon.png';
-import '../../img/png/Apple books.png';
+import amazonIcon from '../../img/png/amazon.png';
+import appleB from '../../img/png/Apple books.png';
 export function modalBookTemplate({ book_image, title, author, description, buy_links }) {
   const [amazon, apple_book] = buy_links;
   const amazonUrl = amazon.url;
@@ -15,7 +15,7 @@ export function modalBookTemplate({ book_image, title, author, description, buy_
           <div class="modal-icons">
             <a target="_blank" href="${amazonUrl}">
               <img
-                src="./img/png/amazon.png"
+                src="${amazonIcon}"
                 class="amazon-icon"
                 alt="Amazon"
                 width="62"
@@ -24,7 +24,7 @@ export function modalBookTemplate({ book_image, title, author, description, buy_
             </a>
             <a target="_blank" href="${appleUrl}">
               <img
-                src="./img/png/Apple books.png"
+                src="${appleB}"
                 class="apple-books-icon"
                 alt="Apple books"
                 width="33"
