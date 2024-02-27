@@ -1,4 +1,7 @@
-import {pagination} from './pagination'
+import { pagination } from './pagination'
+import amazonIcon from '../../img/png/amazon.png';
+import appleB from '../../img/png/Apple books.png';
+import dump from '../../img/png/dump.png'
 
 function hideSidebar() {
 	const tagTitle = document.querySelector('.hero-title');
@@ -28,7 +31,7 @@ function templateSl(books) {
 	const markupSl = books.map(book => 
 		`<li class="sl-item" data-bookId="${book._id}">
 			<button class="sl-remove">
-				<img src="./img/png/dump.png" class="sl-remove-img">
+				<img src=".${dump}" class="sl-remove-img">
 			</button>
 			<img class="sl-img" src="${book.book_image}" alt="${book.description}">
 			<div class="sl-info">
@@ -39,10 +42,10 @@ function templateSl(books) {
 					<p class="sl-book-author">${book.author}</p>
 					<div class="sl-book-links">
 						<a class="sl-book-link-amazon" href="${book.buy_links[0].url}">
-							<img class="sl-book-link-amazon-img" src="./img/png/amazon.png">
+							<img class="sl-book-link-amazon-img" src="${amazonIcon}">
 						</a>
 						<a class="sl-book-link-ab" href="${book.buy_links[1].url}">
-							<img class="sl-book-link-ab-img" src="./img/png/Apple books.png">
+							<img class="sl-book-link-ab-img" src="${appleB}">
 						</a>
 					</div>
 				</div>
