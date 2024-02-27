@@ -1,136 +1,4 @@
-const slList = document.querySelector('.shopping-list');
-const dataFromLs = localStorage.getItem('booksData');
-const parsedData = dataParse();
-
-function dataParse() {
-	let parsedData;
-	try {
-    parsedData = JSON.parse(dataFromLs);
-		return parsedData
-} catch (error) {
-    console.error("Error:", error);
-}
-}
-
-export function renderSl(books) {
-	// функція приймає масив об'єктів з ls
-	books.forEach(book => {
-		// створення елементів
-		const slItem = document.createElement('li');
-		slItem.classList.add('sl-item');
-		slItem.setAttribute('data-bookId', `${book._id}`)
-
-		const slImg = document.createElement('img');
-		slImg.setAttribute('src', `${book.book_image}`);
-		slImg.setAttribute('alt', '');
-		slImg.classList.add('sl-img');
-
-		const slInfo = document.createElement('div');
-		slInfo.classList.add('sl-info');
-
-		const bookTitle = document.createElement('h3');
-		bookTitle.classList.add('sl-book-title');
-		bookTitle.textContent = `${book.title}`;
-		
-		const bookCategory = document.createElement('p');
-		bookCategory.classList.add('sl-book-category');
-		bookCategory.textContent = `${book.list_name}`
-
-		const bookDescription = document.createElement('p');
-		bookDescription.classList.add('sl-book-description');
-		bookDescription.textContent = `${book.description}`;
-
-		const bookSellBox = document.createElement('div');
-		bookSellBox.classList.add('sl-sell-box')
-
-		const bookAuthor = document.createElement('p');
-		bookAuthor.classList.add('sl-book-author');
-		bookAuthor.textContent = `${book.author}`;
-
-		const bookLinks = document.createElement('div');
-		bookLinks.classList.add('sl-book-links');
-
-		const slBtn = document.createElement('button');
-		slBtn.classList.add('sl-remove');
-
-		const slBtnImg = document.createElement('img');
-		slBtnImg.setAttribute('src', "./img/png/dump.png");
-		slBtnImg.classList.add('sl-remove-img');
-
-		slList.appendChild(slItem);
-		slItem.appendChild(slBtn);
-		slBtn.appendChild(slBtnImg);
-		slItem.appendChild(slImg);
-		slItem.appendChild(slInfo);
-		slInfo.appendChild(bookTitle);
-		slInfo.appendChild(bookCategory);
-		slInfo.appendChild(bookDescription);
-		slInfo.appendChild(bookSellBox);
-		bookSellBox.appendChild(bookAuthor);
-		bookSellBox.appendChild(bookLinks);
-
-		if (Array.isArray(book.buy_links)) {
-			book.buy_links.forEach(link => {
-				if (link.name === 'Amazon') {
-					const bookLinkAmazon = document.createElement('a');		
-					bookLinkAmazon.setAttribute('href', link.url);
-					bookLinkAmazon.classList.add('sl-book-link-amazon');
-					bookLinks.appendChild(bookLinkAmazon);
-					const bookLinkAmazonImg = document.createElement('img');
-					bookLinkAmazonImg.classList.add('sl-book-link-amazon-img');
-					bookLinkAmazonImg.setAttribute('src', './img/png/amazon.png')
-					bookLinkAmazon.appendChild(bookLinkAmazonImg);
-				}
-      });
-    }
-		if (Array.isArray(book.buy_links)) {
-			book.buy_links.forEach(link => {
-				if (link.name === 'Apple Books') {
-					const bookLinkAb = document.createElement('a');		
-					bookLinkAb.setAttribute('href', link.url);
-					bookLinkAb.classList.add('sl-book-link-ab');
-					bookLinks.appendChild(bookLinkAb);
-					const bookLinkAbImg = document.createElement('img');
-					bookLinkAbImg.classList.add('sl-book-link-ab-img');
-					bookLinkAbImg.setAttribute('src', './img/png/Apple books.png')
-					bookLinkAb.appendChild(bookLinkAbImg);
-				};
-      });
-		};
-	});
-};
-
-function initializeRender(dataFromLs) {
-    try {
-        if (dataFromLs !== null) {
-            if (Array.isArray(parsedData)) {
-                renderSl(parsedData);
-            } else {
-                console.error("Дані з локального сховища не є масивом.");
-            }
-				} else {
-					const emptyPage = document.createElement('div');
-					emptyPage.classList.add('empty-page-box');
-
-					const emptyPageText = document.createElement('p');
-					emptyPageText.classList.add('empty-page-text');
-					emptyPageText.textContent = 'This page is empty, add some books and proceed to order.';
-
-					const emptyPageImg = document.createElement('img');
-					emptyPageImg.classList.add('empty-page-img');
-					emptyPageImg.setAttribute('src', './img/png/IMG_96061.png')
-
-					slList.appendChild(emptyPage);
-					emptyPage.appendChild(emptyPageText);
-					emptyPage.appendChild(emptyPageImg);
-
-        }
-    } catch (error) {
-        console.error("Помилка при розпарсюванні даних з локального сховища:", error);
-    }
-};
-
-initializeRender(parsedData);
+import {pagination} from './pagination'
 
 function hideSidebar() {
 	const tagTitle = document.querySelector('.hero-title');
@@ -142,21 +10,105 @@ function hideSidebar() {
 
 hideSidebar();
 
-const item = document.querySelector('.sl-item');
+const slList = document.querySelector('.shopping-list');
+const dataFromLs = localStorage.getItem('booksData');
+const parsedData = dataParse();
 
-const removeBtns = document.querySelectorAll('.sl-remove');
-removeBtns.forEach(btn => {
-	btn.addEventListener('click', (event) => {
-		const bookId = item.getAttribute('data-bookId')
-		removeFromLs(parsedData, bookId)
-	})
-})
-
-function removeFromLs(books, bookId) {
-	const updatedData = books.filter(book => book._id !== bookId);
-	localStorage.setItem('booksData', JSON.stringify(updatedData));
-	const itemToRemove = document.querySelector(`[data-bookId="${bookId}"]`);
-	if (itemToRemove) {
-		itemToRemove.remove();
-	}
+function dataParse() {
+	let parsedData;
+		try {
+    parsedData = JSON.parse(dataFromLs);
+		return parsedData
+	} catch (error) {
+    console.error("Error:", error);
+	};
 };
+
+function templateSl(books) {
+	const markupSl = books.map(book => 
+		`<li class="sl-item" data-bookId="${book._id}">
+			<button class="sl-remove">
+				<img src="./img/png/dump.png" class="sl-remove-img">
+			</button>
+			<img class="sl-img" src="${book.book_image}" alt="${book.description}">
+			<div class="sl-info">
+				<h3 class="sl-book-title">${book.title}</h3>
+				<p class="sl-book-category">${book.list_name}</p>
+				<p class="sl-book-description">${book.description}</p>
+				<div class="sl-sell-box">
+					<p class="sl-book-author">${book.author}</p>
+					<div class="sl-book-links">
+						<a class="sl-book-link-amazon" href="${book.buy_links[0].url}">
+							<img class="sl-book-link-amazon-img" src="./img/png/amazon.png">
+						</a>
+						<a class="sl-book-link-ab" href="${book.buy_links[1].url}">
+							<img class="sl-book-link-ab-img" src="./img/png/Apple books.png">
+						</a>
+					</div>
+				</div>
+			</div>
+		</li>`
+	).join('\n\n');
+
+	slList.innerHTML = markupSl;
+};
+
+function templateEmptySl() {
+	const markupEmptySl =
+	`<div class="empty-page-box">
+		<p class="empty-page-text">This page is empty, add some books and proceed to order.</p>
+		<img class="empty-page-img" src="./img/png/IMG_96061.png" alt="This page is empty, add some books and proceed to order">
+	</div>`;
+	
+	slList.innerHTML = markupEmptySl;
+}
+
+function initializeRender(dataFromLs) {
+    try {
+        if (dataFromLs !== null && dataFromLs.length !== 0) {
+            if (Array.isArray(parsedData)) {
+                templateSl(parsedData);
+            } else {
+                console.error(error);
+            }
+				} else {
+					templateEmptySl();
+				}
+    } catch (error) {
+        console.error("Помилка при розпарсЮванні даних:", error);
+    }
+};
+
+initializeRender(parsedData);
+
+slList.addEventListener('click', event => {
+	const removeBtn = event.target.closest('.sl-remove');
+	if (removeBtn) {
+		const listItem = removeBtn.closest('.sl-item');
+		listItem.remove();
+		const bookId = listItem.dataset.bookid;
+		updateLs(parsedData => removeBookFromLs(parsedData, bookId));
+	}
+	});
+
+function removeBookFromLs(books, bookId) {
+	const filteredBook = books.filter(book => book._id !== bookId);
+	return filteredBook
+};
+
+function updateLs(updateFunction) {
+	const storedData = JSON.parse(localStorage.getItem('booksData')) || [];
+	const updatedData = updateFunction(storedData);
+
+	localStorage.setItem('booksData', JSON.stringify(updatedData));
+};
+
+if (slList.getElementsByTagName('li').length > 3) {
+	pagination();
+		} else if (slList.getElementsByTagName('li').length <= 3){
+	const arrowsLAndR = document.querySelectorAll('.pagination-button');
+	arrowsLAndR.forEach(arrow => {
+		arrow.style.display = 'none';
+	})} else {
+		templateEmptySl();
+	}
