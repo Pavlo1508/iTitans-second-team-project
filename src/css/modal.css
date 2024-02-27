@@ -67,7 +67,7 @@
 }
 
 .modal-close-icon:hover {
-  stroke: #4f2ee8;
+  stroke: #4F2EE8;
 }
 
 .image {
@@ -96,7 +96,7 @@
   font-size: 12px;
   line-height: 1.16667;
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: #B4AFAF;
   margin-bottom: 18px;
 }
 
@@ -133,7 +133,7 @@
 
 .modal-btn {
   background-color: inherit;
-  border: 2px solid #4f2ee8;
+  border: 2px solid #4F2EE8;
   border-radius: 40px;
   padding: 14px 28px;
   font-family: 'DMSans', sans-serif;
@@ -151,8 +151,8 @@
 
 .modal-btn:hover,
 .modal-btn:focus {
-  background-color: #4f2ee8;
-  color: #ffffff;
+  background-color: #4F2EE8;
+  color: #FFFFFF;
 }
 
 .js-remove-btn {
@@ -172,7 +172,6 @@
 }
 
 /* ========== DARK ========== */
-
 .dark-modal {
   border-color: #fff;
   background-color: #202024;
@@ -183,7 +182,7 @@
 }
 
 .dark-book-author {
-  color: #b4afaf;
+  color: #B4AFAF;
 }
 
 .dark-book-text {
@@ -202,13 +201,19 @@
   filter: brightness(0) invert(1);
 }
 
-.dark-amazon-icon:hover,
+.dark-amazon-icon:hover {
+  filter: invert(100%) hue-rotate(188deg) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+
 .dark-apple-books-icon:hover {
   filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
 
-/* ========== MEDIA STYLES ========== */
+.dark-modal-close-icon {
+  stroke: #fff;
+}
 
+/* ========== MEDIA STYLES ========== */
 @media screen and (min-width: 768px) {
   .add-modal {
     width: 579px;
