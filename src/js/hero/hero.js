@@ -251,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBookCards();
 });
 const firstCategoryItems = document.getElementById('category-el');
-console.log(firstCategoryItems);
 firstCategoryItems.addEventListener('click', () => {
   document.querySelector('.hero-list').innerHTML = '';
   document.querySelector(
