@@ -1,3 +1,5 @@
+import {pagination} from './pagination'
+
 function hideSidebar() {
 	const tagTitle = document.querySelector('.hero-title');
 	const sidebar = document.querySelector('.sidebar')
@@ -81,15 +83,13 @@ initializeRender(parsedData);
 
 slList.addEventListener('click', event => {
     const removeBtn = event.target.closest('.sl-remove');
-
-    if (removeBtn) {
-			const listItem = removeBtn.closest('.sl-item');
-			listItem.remove();
-			const bookId = listItem.dataset.bookid;
-			updateLs(parsedData =>  removeBookFromLs(parsedData, bookId));
-		}
-	
-});
+		const listItem = removeBtn.closest('.sl-item');
+		listItem.remove();
+		const bookId = listItem.dataset.bookid;
+		updateLs(parsedData => removeBookFromLs(parsedData, bookId));
+	initializeRender(parsedData)
+	pagination();
+	});
 
 function removeBookFromLs(books, bookId) {
 	const filteredBook = books.filter(book => book._id !== bookId);
@@ -101,4 +101,11 @@ function updateLs(updateFunction) {
 	const updatedData = updateFunction(storedData);
 
 	localStorage.setItem('booksData', JSON.stringify(updatedData));
-}
+};
+
+if (slList.getElementsByTagName('li').length > 3) {
+		pagination();
+		} else {
+		const arrowsLAndR = document.querySelector('.pagination-button');
+		arrowsLAndR.sttyle.display = 'none';
+		}
