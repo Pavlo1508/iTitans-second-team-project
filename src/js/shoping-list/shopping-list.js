@@ -1,7 +1,7 @@
 import { pagination } from './pagination'
 import amazonIcon from '../../img/png/amazon.png';
 import appleB from '../../img/png/Apple books.png';
-import dump from '../../img/png/dump.png'
+import dump from '../../img/png/dump.png';
 
 function hideSidebar() {
 	const tagTitle = document.querySelector('.hero-title');
@@ -31,7 +31,7 @@ function templateSl(books) {
 	const markupSl = books.map(book => 
 		`<li class="sl-item" data-bookId="${book._id}">
 			<button class="sl-remove">
-				<img src=".${dump}" class="sl-remove-img">
+				<img src="${dump}" class="sl-remove-img">
 			</button>
 			<img class="sl-img" src="${book.book_image}" alt="${book.description}">
 			<div class="sl-info">
