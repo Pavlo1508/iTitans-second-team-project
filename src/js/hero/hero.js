@@ -27,7 +27,6 @@ function createMarkupForBookCard(book) {
     </li>
   `;
 }
-10:12
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
