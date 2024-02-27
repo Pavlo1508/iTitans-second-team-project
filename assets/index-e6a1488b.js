@@ -1,4 +1,4 @@
-import{a as k,b as w,c as q}from"./Apple books-496f8b96.js";let v=null;async function E(){if(!v)try{v=(await k.get("https://books-backend.p.goit.global/books/top-books")).data}catch(o){throw console.error(o),o}return v}function A(o){const{_id:e,author:t,book_image:s,title:d}=o;return`
+import{a as k,b as w,c as q}from"./Apple books-9afad5a0.js";let v=null;async function E(){if(!v)try{v=(await k.get("https://books-backend.p.goit.global/books/top-books")).data}catch(o){throw console.error(o),o}return v}function A(o){const{_id:e,author:t,book_image:s,title:d}=o;return`
     <li class="hero-list-card" data-cardID="${e}">
     <div class='card-image-cont'>
         <img class="hero-card-image" src="${s}" alt="${d}" />
