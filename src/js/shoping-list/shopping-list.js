@@ -1,7 +1,7 @@
 import { pagination } from './pagination'
 import amazonIcon from '../../img/png/amazon.png';
 import appleB from '../../img/png/Apple books.png';
-import dump from 'img/png/dump.png'
+import dump from './img/png/dump.png'
 
 function hideSidebar() {
 	const tagTitle = document.querySelector('.hero-title');
