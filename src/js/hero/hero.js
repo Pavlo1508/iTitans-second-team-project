@@ -1,4 +1,5 @@
 import axios from 'axios';
+const switcherForDark = document.querySelector('#theme');
 let cachedBooksData = null;
 async function fetchBooksDataIfNeeded() {
   if (!cachedBooksData) {
@@ -27,39 +28,7 @@ function createMarkupForBookCard(book) {
     </li>
   `;
 }
-// export async function renderBookCards() {
-//   try {
-//     let booksData = await fetchBooksDataIfNeeded();
-//     booksData = shuffleArray(booksData);
-//     const gallery = document.querySelector('.hero-list');
-//     let categoriesToShow = 4;
-//     let booksPerCategory = 1;
-//     if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-//       categoriesToShow = 4;
-//       booksPerCategory = 3;
-//     } else if (window.innerWidth >= 1440) {
-//       categoriesToShow = 3;
-//       booksPerCategory = 5;
-//     }
-//     for (let i = 0; i < categoriesToShow; i += 1) {
-//       const category = booksData[i];
-//       const booksToShow = category.books.slice(0, booksPerCategory);
-//       const booksMarkup = booksToShow.map(createMarkupForBookCard).join('');
-//       const categoryMarkup = `
-//         <li class="hero-list-wrapper">
-//           <h2 class="hero-card-title">${category.list_name}</h2>
-//           <ul class="hero-card-list">
-//             ${booksMarkup}
-//           </ul>
-//           <button class='card-button' type='button'>See More</button>
-//         </li>
-//       `;
-//       gallery.insertAdjacentHTML('beforeend', categoryMarkup);
-//     }
-//   } catch (error) {
-//     console.error('Error rendering book cards:', error);
-//   }
-// }
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -67,90 +36,7 @@ function shuffleArray(array) {
   }
   return array;
 }
-// renderBookCards();
-// window.addEventListener('resize', () => {
-//   document.querySelector('.hero-list').innerHTML = '';
-//   renderBookCards();
-// });
-// ПЕРЕНЕСТИ В MAIN.JS
-// import './hero';
-// function darkThemeForHero() {
-//   const heroTitle = document.querySelector('.hero-title');
-//   const switcher = document.querySelector('#theme');
-//   const cardBookTitle = document.querySelector('.book-title');
-//   const heroBtn = document.querySelector('.card-button');
-//   // console.log(switcher);
-//   // console.log(cardBookTitle);
-//   // console.log(heroBtn);
-//   if (switcher.checked) {
-//     heroTitle.classList.add('dark-hero');
-//     cardBookTitle.classList.add('dark-hero');
-//     heroBtn.classList.add('dark-hero');
-//     // localStorage.setItem(key, JSON.stringify(switcher.checked))
-//   } else {
-//     heroTitle.classList.remove('dark-hero');
-//     cardBookTitle.classList.remove('dark-hero');
-//     heroBtn.classList.remove('dark-hero');
-//   }
-// }
-// function getElementsForChange(delay) {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       const heroTitle = document.querySelectorAll('.hero-title');
-//       const switcher = document.querySelectorAll('#theme');
-//       const cardBookTitle = document.querySelectorAll('.book-title');
-//       const heroBtn = document.querySelectorAll('.card-button');
-//       resolve({ heroTitle, switcher, cardBookTitle, heroBtn });
-//     }, delay);
-//   });
-// }
-// function addDarkThemeForHero(elements) {
-//   const { heroTitle, switcher, cardBookTitle, heroBtn } = elements;
-//   console.log(elements);
-//   if (switcher && heroTitle && cardBookTitle && heroBtn) {
-//     if (switcher.checked) {
-//       heroTitle.classList.add('dark-hero');
-//       cardBookTitle.classList.add('dark-hero');
-//       heroBtn.classList.add('dark-hero');
-//       // localStorage.setItem(key, JSON.stringify(switcher.checked))
-//     } else {
-//       heroTitle.classList.remove('dark-hero');
-//       cardBookTitle.classList.remove('dark-hero');
-//       heroBtn.classList.remove('dark-hero');
-//     }
-//   } else {
-//     console.error('Один або декілька елементів не знайдено.');
-//   }
-// }
-// getElementsForChange(3000)
-//   .then(elements => {
-//     addDarkThemeForHero(elements);
-//   })
-//   .catch(error => {
-//     console.error('Сталася помилка:', error);
-//   });
-//
-// function addDarkThemeForHero() {
-//   const heroTitle = document.querySelectorAll('.hero-title');
-//   const switcher = document.querySelector('#theme');
-//   const cardBookTitle = document.querySelectorAll('.book-title');
-//   const heroBtn = document.querySelectorAll('.card-button');
-//   if (switcher && switcher.checked) {
-//     heroTitle.forEach(title => title.classList.add('dark-hero'));
-//     cardBookTitle.forEach(title => title.classList.add('dark-hero'));
-//     heroBtn.forEach(btn => btn.classList.add('dark-hero'));
-//   } else {
-//     heroTitle.forEach(title => title.classList.remove('dark-hero'));
-//     cardBookTitle.forEach(title => title.classList.remove('dark-hero'));
-//     heroBtn.forEach(btn => btn.classList.remove('dark-hero'));
-//   }
-// }
-// // Відслідковуємо подію завантаження DOM
-// document.addEventListener('DOMContentLoaded', function () {
-//   // Отримуємо елементи та змінюємо їх стилі
-//   addDarkThemeForHero();
-// });
-// setTimeout(darkThemeForHero, 3000);
+
 window.addEventListener('resize', () => {
   document.querySelector('.hero-list').innerHTML = '';
   document.querySelector(
@@ -203,17 +89,18 @@ export async function renderBookCards() {
     });
     const categoriesList = document.getElementById('categories-list');
     categoriesList.querySelectorAll('.category-item').forEach(category => {
-          category.addEventListener('click', async () => {
+			category.addEventListener('click', async () => {
           const categoryName = category.dataset.text;
           try {
             const response = await axios.get(
               `https://books-backend.p.goit.global/books/category?category=${categoryName}`
             );
             const categoryBooks = response.data;
-            displayCategoryBooks(categoryBooks, categoryName);
+						displayCategoryBooks(categoryBooks, categoryName);
+						addStylesInHero()
           } catch (error) {
-            console.error('Error fetching category books:', error);
-          }
+						console.error('Error fetching category books:', error);
+						}
         });
     });
   } catch (error) {
@@ -246,9 +133,56 @@ function displayCategoryBooks(categoryBooks, categoryName) {
   document.querySelector('.hero-title').textContent = categoryName;
 }
 document.addEventListener('DOMContentLoaded', () => {
-  renderBookCards();
+	renderBookCards();
 });
 const firstCategoryItems = document.querySelector('.first-categorie-item');
 firstCategoryItems.addEventListener('click', () => {
 	location.reload();
 });
+	
+
+switcherForDark.addEventListener('click', () => {
+  const mainTitle = document.querySelector('.hero-title');
+  const cardTitle = document.querySelectorAll('.book-title');
+  const cardBtn = document.querySelectorAll('.card-button');
+  if (switcherForDark.checked) {
+    mainTitle.classList.add('dark-hero');
+    cardTitle.forEach(cardTitle => {
+      cardTitle.classList.add('dark-hero');
+    });
+    cardBtn.forEach(cardBtn => {
+      cardBtn.classList.add('dark-hero');
+    });
+  } else {
+    mainTitle.classList.remove('dark-hero');
+    cardTitle.forEach(cardTitle => {
+      cardTitle.classList.remove('dark-hero');
+    });
+    cardBtn.forEach(cardBtn => {
+      cardBtn.classList.remove('dark-hero');
+    });
+  }
+});
+
+function addStylesInHero() { 
+	const mainTitle = document.querySelector('.hero-title');
+  const cardTitle = document.querySelectorAll('.book-title');
+	const cardBtn = document.querySelectorAll('.card-button');
+	if (switcherForDark.checked) {
+  		mainTitle.classList.add('dark-hero');
+  		cardTitle.forEach(cardTitle => {
+  		cardTitle.classList.add('dark-hero');
+  	});
+  		cardBtn.forEach(cardBtn => {
+  		cardBtn.classList.add('dark-hero');
+  	});
+  	} else {
+  		mainTitle.classList.remove('dark-hero');
+  		cardTitle.forEach(cardTitle => {
+  		cardTitle.classList.remove('dark-hero');
+  		});
+  		cardBtn.forEach(cardBtn => {
+  		cardBtn.classList.remove('dark-hero');
+  		});
+  	}
+ }

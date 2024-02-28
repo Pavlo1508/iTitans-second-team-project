@@ -1,63 +1,80 @@
 const categoriesList = document.getElementById('categories-list');
-let previousItem = '';
+import './sidebar';  // Якщо це модуль, переконайтеся, що він імпортується належним чином
+let previousItem = null;
+const switcherForDarkSidebar = document.getElementById('theme');
+
+function handleItemClick(event) {
+    const clickedItem = event.target;
+
+    if (clickedItem.classList.contains('category-item')) {
+        const isDarkMode = switcherForDarkSidebar.checked;
+
+        if (previousItem && previousItem !== clickedItem) {
+            previousItem.textContent = previousItem.getAttribute('data-text');
+            resetStyle(previousItem, isDarkMode);
+        }
+
+        clickedItem.textContent = clickedItem.textContent.toUpperCase();
+        addStyle(clickedItem, isDarkMode);
+
+        previousItem = clickedItem;
+        allCategory.setAttribute('id', '');
+    }
+}
+
+categoriesList.addEventListener('click', handleItemClick);
+
 export function renderSb(categories) {
-
     categories.forEach(category => {
-		const categoryItem = document.createElement('li');
-		// створюємо лішку з кожного елементу масиву
-		categoryItem.classList.add('category-item');
-		// categoryItem.classList.add('dark-category-item');
-		// додаєм до лішки клас
-		categoryItem.textContent = category;
-		// додаєм до лішки текст який буде з'являтись
-		categoriesList.appendChild(categoryItem);
-		// рендерим створену лішку
-	});
+        categoriesList.insertAdjacentHTML('beforeend', `<li class="category-item">${category}</li>`);
+    });
 
-	const allCategoryItems = document.querySelectorAll('.category-item');
-	const allCategory = document.querySelector('.first-categorie-item');
-	
-	allCategoryItems.forEach(allCategoryItems => {
-	allCategoryItems.addEventListener('click', () => {
-		addStyle(allCategoryItems);
-		allCategoryItems.textContent = allCategoryItems.textContent.toUpperCase();
-		// при кліку переводимо текст до верхнього регістру
-        if (previousItem && previousItem !== allCategoryItems) {
-			previousItem.textContent = previousItem.getAttribute('data-text');
-			resetStyle(previousItem);
-		}
-		// перевіряємо, чи є попередній елемент та чи він не є вибраним елементом
-		// якщо так, то змінюємо текст попереднього елемента на текст який був спочатку.
-		previousItem = allCategoryItems;
-		// зберігаєм текст вибраного єлемента для наступних прівнянь
-		allCategory.setAttribute('id', '');
+    const allCategoryItems = document.querySelectorAll('.category-item');
+    // const allCategory = document.querySelector('.first-categorie-item');
+
+    allCategoryItems.forEach(item => {
+        item.setAttribute('data-text', item.textContent);
+    });
+
+    switcherForDarkSidebar.addEventListener('click', () => {
+        const isDarkMode = switcherForDarkSidebar.checked;
+
+        allCategoryItems.forEach(item => {
+            resetStyle(item, !isDarkMode);
+            addStyle(item, isDarkMode);
         });
 
-        allCategoryItems.setAttribute('data-text', allCategoryItems.textContent);
-		// додаєм артибут у якому зберігаєм текст
-		
-	});	
+        if (previousItem) {
+            handleItemClick({ target: previousItem });
+        }
+    });
 }
 
-function addStyle(allCategoryItems) {
-	const bodyStyle = window.getComputedStyle(document.body);
-    const backgroundColor = bodyStyle.backgroundColor;
-	if (backgroundColor === 'rgb(32, 32, 36)') {
-	allCategoryItems.style.color = '#EAC645';
-    allCategoryItems.style.fontWeight = '700';
-	} else {
-	allCategoryItems.style.color = '#4F2EE8';
-    allCategoryItems.style.fontWeight = '700';	
-	}
+function addStyle(item, isDarkMode) {
+    // const bodyStyle = window.getComputedStyle(document.body);
+    // const backgroundColor = bodyStyle.backgroundColor;
+
+    if (isDarkMode) {
+        item.style.color = '#EAC645';
+        item.style.fontWeight = '700';
+    } else {
+        item.style.color = '#4F2EE8';
+        item.style.fontWeight = '700';
+    }
 }
-function resetStyle(previousItem) {
-  	const bodyStyle = window.getComputedStyle(document.body);
-	const backgroundColor = bodyStyle.backgroundColor;
-	if (backgroundColor === 'rgb(32, 32, 36)') {
-	previousItem.style.color = 'rgb(255, 255, 255, 0.6)';
-    previousItem.style.fontWeight = '400';
-	} else {
-	previousItem.style.color = 'rgb(17, 17, 17, 0.6)';
-    previousItem.style.fontWeight = '400';
-	}
+
+function resetStyle(item, isDarkMode) {
+    // const bodyStyle = window.getComputedStyle(document.body);
+    // const backgroundColor = bodyStyle.backgroundColor;
+
+    if (isDarkMode) {
+        item.style.color = 'rgba(255, 255, 255, 0.6)';
+        item.style.fontWeight = '400';
+    } else {
+        item.style.color = 'rgba(17, 17, 17, 0.6)';
+        item.style.fontWeight = '400';
+    }
 }
+
+// Додайте інші функції, такі як addDarkStyle, resetDarkStyle, якщо вони використовуються в іншому коді.
+

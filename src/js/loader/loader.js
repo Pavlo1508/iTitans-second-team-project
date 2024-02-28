@@ -60,11 +60,6 @@ function showLoader() {
   interceptXHRRequests();
   interceptFetchRequests();
   
-  document.querySelector('.switch').addEventListener('click', function (event) {
-    event.preventDefault();
-    updateLoaderStyle();
-  });
-  
   function updateLoaderStyle() {
     let loaderOverlay = document.getElementById('loader-overlay');
     if (document.body.classList.contains('dark')) {

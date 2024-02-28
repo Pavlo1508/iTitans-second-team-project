@@ -44,11 +44,11 @@
 	font-weight: 700;
 }
 
-/* .dark-category-item {
+.dark-category-item {
   color: rgb(255, 255, 255, 0.6);
 }
 
-.dark-scrollbar::-webkit-scrollbar-thumb {
+/* .dark-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 12px;
   height: 114px;
   background: rgba(17, 17, 17, 0.6);
