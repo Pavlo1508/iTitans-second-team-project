@@ -203,8 +203,7 @@ export async function renderBookCards() {
     });
     const categoriesList = document.getElementById('categories-list');
     categoriesList.querySelectorAll('.category-item').forEach(category => {
-      if (category.textContent !== 'All categories') {
-        category.addEventListener('click', async () => {
+          category.addEventListener('click', async () => {
           const categoryName = category.dataset.text;
           try {
             const response = await axios.get(
@@ -216,7 +215,6 @@ export async function renderBookCards() {
             console.error('Error fetching category books:', error);
           }
         });
-      }
     });
   } catch (error) {
     console.error('Error rendering book cards:', error);
@@ -250,11 +248,7 @@ function displayCategoryBooks(categoryBooks, categoryName) {
 document.addEventListener('DOMContentLoaded', () => {
   renderBookCards();
 });
-const firstCategoryItems = document.getElementById('category-el');
+const firstCategoryItems = document.querySelector('.first-categorie-item');
 firstCategoryItems.addEventListener('click', () => {
-  document.querySelector('.hero-list').innerHTML = '';
-  document.querySelector(
-    '.hero-title'
-  ).innerHTML = `<h1 class="hero-title">Best Sellers <span class="hero-accent">Books</span></h1>`;
-  renderBookCards();
+	location.reload();
 });

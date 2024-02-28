@@ -6,7 +6,7 @@ export function renderSb(categories) {
 		const categoryItem = document.createElement('li');
 		// створюємо лішку з кожного елементу масиву
 		categoryItem.classList.add('category-item');
-		categoryItem.classList.add('dark-category-item');
+		// categoryItem.classList.add('dark-category-item');
 		// додаєм до лішки клас
 		categoryItem.textContent = category;
 		// додаєм до лішки текст який буде з'являтись
@@ -15,6 +15,7 @@ export function renderSb(categories) {
 	});
 
 	const allCategoryItems = document.querySelectorAll('.category-item');
+	const allCategory = document.querySelector('.first-categorie-item');
 	
 	allCategoryItems.forEach(allCategoryItems => {
 	allCategoryItems.addEventListener('click', () => {
@@ -29,10 +30,12 @@ export function renderSb(categories) {
 		// якщо так, то змінюємо текст попереднього елемента на текст який був спочатку.
 		previousItem = allCategoryItems;
 		// зберігаєм текст вибраного єлемента для наступних прівнянь
+		allCategory.setAttribute('id', '');
         });
 
         allCategoryItems.setAttribute('data-text', allCategoryItems.textContent);
 		// додаєм артибут у якому зберігаєм текст
+		
 	});	
 }
 
@@ -46,7 +49,6 @@ function addStyle(allCategoryItems) {
 	allCategoryItems.style.color = '#4F2EE8';
     allCategoryItems.style.fontWeight = '700';	
 	}
-	
 }
 function resetStyle(previousItem) {
   	const bodyStyle = window.getComputedStyle(document.body);

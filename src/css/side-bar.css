@@ -38,6 +38,12 @@
   background-color: #e0e0e0;
 }
 
+#category-el {
+	color: #4F2EE8;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
 /* .dark-category-item {
   color: rgb(255, 255, 255, 0.6);
 }
