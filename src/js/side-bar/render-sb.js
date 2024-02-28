@@ -1,5 +1,5 @@
 const categoriesList = document.getElementById('categories-list');
-import './sidebar';  // Якщо це модуль, переконайтеся, що він імпортується належним чином
+import './sidebar';
 let previousItem = null;
 const switcherForDarkSidebar = document.getElementById('theme');
 
@@ -11,11 +11,11 @@ function handleItemClick(event) {
 
         if (previousItem && previousItem !== clickedItem) {
             previousItem.textContent = previousItem.getAttribute('data-text');
-            resetStyle(previousItem, isDarkMode);
+            resetStyleCategories(previousItem, isDarkMode);
         }
 
         clickedItem.textContent = clickedItem.textContent.toUpperCase();
-        addStyle(clickedItem, isDarkMode);
+        addStyleCategories(clickedItem, isDarkMode);
 
         previousItem = clickedItem;
         allCategory.setAttribute('id', '');
@@ -30,7 +30,6 @@ export function renderSb(categories) {
     });
 
     const allCategoryItems = document.querySelectorAll('.category-item');
-    // const allCategory = document.querySelector('.first-categorie-item');
 
     allCategoryItems.forEach(item => {
         item.setAttribute('data-text', item.textContent);
@@ -40,7 +39,7 @@ export function renderSb(categories) {
         const isDarkMode = switcherForDarkSidebar.checked;
 
         allCategoryItems.forEach(item => {
-            resetStyle(item, !isDarkMode);
+            // resetStyle(item, !isDarkMode);
             addStyle(item, isDarkMode);
         });
 
@@ -49,32 +48,39 @@ export function renderSb(categories) {
         }
     });
 }
-
+const allCategory = document.getElementById('category-el')
 function addStyle(item, isDarkMode) {
-    // const bodyStyle = window.getComputedStyle(document.body);
-    // const backgroundColor = bodyStyle.backgroundColor;
 
+  if (isDarkMode) {
+		item.classList.add('ligthGrey');
+		allCategory.classList.add('yellowBold');
+		item.classList.remove('darkGrey');
+		allCategory.classList.remove('blueBold');
+  } else {
+		item.classList.remove('ligthGrey');
+		allCategory.classList.remove('yellowBold');
+		item.classList.add('darkGrey');
+		allCategory.classList.add('blueBold');
+  }
+}
+
+function addStyleCategories(item, isDarkMode) {
     if (isDarkMode) {
-        item.style.color = '#EAC645';
-        item.style.fontWeight = '700';
+        item.classList.remove('ligthGrey', 'blueBold');
+        item.classList.add('yellowBold');
     } else {
-        item.style.color = '#4F2EE8';
-        item.style.fontWeight = '700';
+        item.classList.remove('darkGrey', 'yellowBold');
+        item.classList.add('blueBold');
     }
 }
 
-function resetStyle(item, isDarkMode) {
-    // const bodyStyle = window.getComputedStyle(document.body);
-    // const backgroundColor = bodyStyle.backgroundColor;
-
+function resetStyleCategories(item, isDarkMode) {
     if (isDarkMode) {
-        item.style.color = 'rgba(255, 255, 255, 0.6)';
-        item.style.fontWeight = '400';
+        item.classList.remove('yellowBold');
+        item.classList.add('ligthGrey');
     } else {
-        item.style.color = 'rgba(17, 17, 17, 0.6)';
-        item.style.fontWeight = '400';
+        item.classList.remove('blueBold');
+        item.classList.add('darkGrey');
     }
 }
-
-// Додайте інші функції, такі як addDarkStyle, resetDarkStyle, якщо вони використовуються в іншому коді.
 

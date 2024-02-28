@@ -38,16 +38,30 @@
   background-color: #e0e0e0;
 }
 
-#category-el {
+.first-categorie-item {
 	color: #4F2EE8;
 	text-transform: uppercase;
 	font-weight: 700;
 }
 
-.dark-category-item {
-  color: rgb(255, 255, 255, 0.6);
+.darkGrey{
+	color: rgba(17, 17, 17, 0.6);
+	font-weight: 400;
 }
 
+.ligthGrey {
+	color: rgba(255, 255, 255, 0.6);
+	font-weight: 400;
+}
+.blueBold {
+	color: #4F2EE8;
+	font-weight: 700;
+}
+
+.yellowBold {
+	color: #EAC645;
+	font-weight: 700;
+}
 /* .dark-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 12px;
   height: 114px;
