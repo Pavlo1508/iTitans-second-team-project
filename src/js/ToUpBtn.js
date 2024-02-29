@@ -1,3 +1,5 @@
+import '../img/sprite.svg';
+
 const btn = document.querySelector('.btn-ring');
 const arrowToUpIcon = document.querySelector('.arrow-to-up-icon');
 
