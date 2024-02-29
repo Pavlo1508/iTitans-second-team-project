@@ -22,6 +22,7 @@
 
 .sl-img {
 	border-radius: 8px;
+	width: 100px;
 }
 
 .sl-info {
@@ -128,6 +129,10 @@
 		display: flex;
 		gap: 24px;
 		position: relative;
+	}
+
+	.sl-img {
+		width: 116px;
 	}
 
 	.sl-book-description {
