@@ -2,6 +2,7 @@ import { pagination } from './pagination'
 import amazonIcon from '../../img/png/amazon.png';
 import appleB from '../../img/png/Apple books.png';
 import dump from '../../img/png/dump.png';
+const switcherSl = document.getElementById('theme');
 
 function hideSidebar() {
 	const tagTitle = document.querySelector('.hero-title');
@@ -70,16 +71,18 @@ function initializeRender(dataFromLs) {
     try {
         if (dataFromLs !== null && dataFromLs.length !== 0) {
             if (Array.isArray(parsedData)) {
-                templateSl(parsedData);
+							templateSl(parsedData);
+							changeThemeSl();
             } else {
                 console.error(error);
-            }
+					}
 				} else {
 					templateEmptySl();
-				}
+					
+			}
     } catch (error) {
         console.error("Помилка при розпарсЮванні даних:", error);
-    }
+	}
 };
 
 initializeRender(parsedData);
@@ -114,4 +117,44 @@ if (slList.getElementsByTagName('li').length > 3) {
 		arrow.style.display = 'none';
 	})} else {
 		templateEmptySl();
-	}
+}
+
+switcherSl.addEventListener('click', changeThemeSl);
+
+function changeThemeSl() {
+	const slTitleDark = document.querySelector('.shopping-list-title');
+	const bookTitleDark = document.querySelectorAll('.sl-book-title');
+	const bookDescriptionDark = document.querySelectorAll('.sl-book-description');
+	const amazonDark = document.querySelectorAll('.sl-book-link-amazon-img');
+	const apDark = document.querySelectorAll('.sl-book-link-ab-img');
+	if (switcherSl.checked) {
+		slTitleDark.classList.add('shopping-list-title-dark');
+		bookTitleDark.forEach(dtitle => {
+			dtitle.classList.add('sl-book-title-dark');
+		});
+		console.log(bookTitleDark);
+		bookDescriptionDark.forEach(desc => {
+			desc.classList.add('sl-book-description-dark');
+		});
+		amazonDark.forEach(icon => {
+			icon.classList.add('sl-book-link-amazon-img-dark');
+		});
+		apDark.forEach(icon => {
+			icon.classList.add('sl-book-link-ab-img-dark');
+		});
+  } else {
+    slTitleDark.classList.remove('shopping-list-title-dark');
+		bookTitleDark.forEach(dtitle => {
+			dtitle.classList.remove('sl-book-title-dark');
+		});
+		bookDescriptionDark.forEach(desc => {
+			desc.classList.remove('sl-book-description-dark');
+		});
+		amazonDark.forEach(icon => {
+			icon.classList.remove('sl-book-link-amazon-img-dark');
+		});
+		apDark.forEach(icon => {
+			icon.classList.remove('sl-book-link-ab-img-dark');
+		});
+  }
+}
