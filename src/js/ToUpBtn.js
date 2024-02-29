@@ -1,11 +1,22 @@
-import './img/sprite.svg';
-
-const btn = document.querySelector('.btn-ring');
-const arrowToUpIcon = document.querySelector('.arrow-to-up-icon');
-
-arrowToUpIcon.setAttribute('href', './img/sprite.svg#icon-material-symbols_arrow-back-ios-rounded');
+import '../img/sprite.svg';
 
 export function scrollToUp() {
+  const btn = document.querySelector('.btn-ring');
+  const arrowToUpIcon = document.querySelector('.arrow-to-up use');
+
+  arrowToUpIcon.setAttribute(
+    'xlink:href',
+    '../img/sprite.svg#icon-material-symbols_arrow-back-ios-rounded'
+  );
+
+  function showButton() {
+    btn.classList.remove('btn-ring-hidden');
+  }
+
+  function hideButton() {
+    btn.classList.add('btn-ring-hidden');
+  }
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 250 || document.documentElement.scrollTop > 250) {
       showButton();
@@ -21,14 +32,6 @@ export function scrollToUp() {
       behavior: 'smooth',
     });
   };
-}
-
-function showButton() {
-  btn.classList.remove('btn-ring-hidden');
-}
-
-function hideButton() {
-  btn.classList.add('btn-ring-hidden');
 }
 
 scrollToUp();
