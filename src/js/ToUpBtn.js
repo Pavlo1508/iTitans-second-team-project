@@ -1,12 +1,9 @@
-import '../img/sprite.svg';
+import './img/sprite.svg';
 
 const btn = document.querySelector('.btn-ring');
 const arrowToUpIcon = document.querySelector('.arrow-to-up-icon');
 
-arrowToUpIcon.setAttribute(
-  'href',
-  '../img/sprite.svg#icon-material-symbols_arrow-back-ios-rounded'
-);
+arrowToUpIcon.setAttribute('href', './img/sprite.svg#icon-material-symbols_arrow-back-ios-rounded');
 
 export function scrollToUp() {
   window.addEventListener('scroll', () => {
