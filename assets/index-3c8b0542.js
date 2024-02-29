@@ -1,4 +1,4 @@
-import{a as k,b as E,c as T}from"./dark-3844f3d9.js";const L=document.querySelector("#theme");let v=null;async function A(){if(!v)try{v=(await k.get("https://books-backend.p.goit.global/books/top-books")).data}catch(e){throw console.error(e),e}return v}function M(e){const{_id:o,author:t,book_image:a,title:c}=e;return`
+import{a as k,b as E,c as T}from"./dark-dea3505a.js";const L=document.querySelector("#theme");let v=null;async function A(){if(!v)try{v=(await k.get("https://books-backend.p.goit.global/books/top-books")).data}catch(e){throw console.error(e),e}return v}function M(e){const{_id:o,author:t,book_image:a,title:c}=e;return`
     <li class="hero-list-card" data-cardID="${o}">
     <div class='card-image-cont'>
         <img class="hero-card-image" src="${a}" alt="${c}" />
